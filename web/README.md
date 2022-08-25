@@ -1,3 +1,11 @@
 # GroundSchool Web
 
-This project provides a web UI for the GroundSchool NZ website.
+React SPA web UI for the GroundSchool NZ website.
+
+### Run development environment
+
+`yarn run start`
+
+### Production build
+
+`yarn run build`
