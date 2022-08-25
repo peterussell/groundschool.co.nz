@@ -1,9 +1,11 @@
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
-namespace api.Controllers;
+namespace WebAPI.Controllers;
 
 [ApiController]
-[Route("[controller]")]
+[Route("/account")]
 public class AccountController : ControllerBase
 {
     private readonly ILogger<AccountController> _logger;
@@ -13,10 +15,10 @@ public class AccountController : ControllerBase
         _logger = logger;
     }
 
-    [HttpGet(Name = "GetWeatherForecast")]
+    [HttpGet("")]
     [ProducesResponseType(StatusCodes.Status200OK)]
-    public IEnumerable<WeatherForecast> Get()
+    public ActionResult Get()
     {
-      
+        return Ok("Hi! I'm the GroundSchool API.");
     }
 }
