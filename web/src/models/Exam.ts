@@ -1,4 +1,4 @@
-import { ExamInfo, ExamQuestion, LicenseType } from "models";
+import { ExamInfo, LicenseType } from "models";
 
 export interface Exam {
   id: string,
