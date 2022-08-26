@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace WebAPI.Controllers;
+namespace GSNZ.Api.Controllers;
 
 [ApiController]
 [Route("/account")]
