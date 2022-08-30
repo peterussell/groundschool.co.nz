@@ -1,18 +1,18 @@
-name: Staging - apply infra
+name: Prod - apply infra
 
 on:
   push:
     branches:
-      - "staging"
+      - "main"
     paths:
       - "iac/**"
 
 concurrency:
-  group: terraform_iac_staging
+  group: terraform_iac_prod
 
 jobs:
   terraform:
-    name: Terraform apply (staging)
+    name: Terraform apply (prod)
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
@@ -34,4 +34,4 @@ jobs:
       - name: Terraform apply
         run: >
           terraform -chdir=${GITHUB_WORKSPACE}/iac apply -auto-approve -input=false
-          -var='environment=staging' -var='deployer_role_arn=${{ secrets.AWS_STAGING_DEPLOY_ROLE_ARN }}' 
+          -var='environment=prod' -var='deployer_role_arn=${{ secrets.AWS_PROD_DEPLOY_ROLE_ARN }}' 
