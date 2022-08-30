@@ -1,16 +1,3 @@
-locals {
-  environments = {
-    staging = {
-      region = "ap-southeast-2"
-      deployer_role_arn = "{{ TODO: get this from GitHub: AWS_STAGING_DEPLOY_ROLE_ARN }}"
-    }
-    prod = {
-      region = "ap-southeast-2"
-      deployer_role_arn = "{{ TODO: get this from GitHub: AWS_PROD_DEPLOY_ROLE_ARN }}"
-    }
-  }
-}
-
 terraform {
   required_providers {
     aws = {
@@ -26,7 +13,7 @@ provider "aws" {
   region = "ap-southeast-2"
 
   assume_role {
-    role_arn = local.environments[var.environment].deployer_role_arn
+    role_arn = "${var.deployer_role_arn}"
   }
 }
 
