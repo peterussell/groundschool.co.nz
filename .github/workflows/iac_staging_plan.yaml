@@ -38,7 +38,7 @@ jobs:
 
       - name: Terraform plan
         id: plan
-        run: terraform -chdir=${GITHUB_WORKSPACE}/iac plan -no-color input=false -var environment="staging" -var deployer_role_arn="${{ secrets.AWS_STAGING_DEPLOY_ROLE_ARN }}"
+        run: terraform -chdir=${GITHUB_WORKSPACE}/iac plan -no-color input=false -var='environment=staging' -var='deployer_role_arn="${{ secrets.AWS_STAGING_DEPLOY_ROLE_ARN }}"'
 
       - name: Update pull request
         uses: actions/github-script@v6
