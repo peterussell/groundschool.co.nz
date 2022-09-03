@@ -10,4 +10,15 @@ public class Exam
     public LicenseType LicenseType { get; private set; }
     public AspeqExamInfo AspeqExamInfo { get; private set; }
     public ExamInfo ExamInfo { get; private set; }
+
+    public Exam(string id, string name, string slug, LicenseType licenseType,
+        AspeqExamInfo aspeqExamInfo, ExamInfo examInfo)
+    {
+        this.Id = id;
+        this.Name = id;
+        this.Slug = slug;
+        this.LicenseType = licenseType;
+        this.AspeqExamInfo = aspeqExamInfo;
+        this.ExamInfo = examInfo;
+    }
 }
