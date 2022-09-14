@@ -9,6 +9,7 @@ import { FooterModule } from './shared/modules/footer/footer.module';
 import { HomeModule } from './features/home/home.module';
 import { LoginModule } from './features/login/login.module';
 import { NavBarModule } from './shared/modules/nav-bar/nav-bar.module';
+import { NotFoundModule } from './features/not-found/not-found.module';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { NavBarModule } from './shared/modules/nav-bar/nav-bar.module';
     FooterModule,
     HomeModule,
     LoginModule,
-    NavBarModule
+    NavBarModule,
+    NotFoundModule
   ],
   providers: [],
   bootstrap: [AppComponent]
