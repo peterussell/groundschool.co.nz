@@ -13,7 +13,15 @@ export class NavBarComponent implements OnInit {
   ngOnInit() {
   }
 
-  authenticate() {
+  handleSignUp() {
+    this.auth.loginWithRedirect({ screen_hint: 'signup' });
+  }
+
+  handleLogIn() {
     this.auth.loginWithRedirect();
+  }
+
+  handleLogOut() {
+    this.auth.logout({ returnTo: document.location.origin });
   }
 }
