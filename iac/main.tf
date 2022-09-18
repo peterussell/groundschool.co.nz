@@ -32,3 +32,10 @@ module "iam" {
   # Variables
   environment = "${var.environment}"
 }
+
+module "s3" {
+  source = "./modules/s3"
+
+  # Variables
+  environment = "${var.environment}"
+}

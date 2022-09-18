@@ -41,6 +41,7 @@ jobs:
         run: >
           terraform -chdir=${GITHUB_WORKSPACE}/iac plan -no-color -input=false
           -var='environment=prod' -var='deployer_role_arn=${{ secrets.AWS_STAGING_DEPLOY_ROLE_ARN }}'
+          -var='site_name=groundschool.co.nz'
 
       - name: Update pull request
         uses: actions/github-script@v6
