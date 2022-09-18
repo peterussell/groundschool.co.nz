@@ -38,5 +38,4 @@ module "s3" {
 
   # Variables
   environment = "${var.environment}"
-  site_name = "${var.site_name}"
 }

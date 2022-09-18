@@ -1,8 +1,6 @@
 resource "aws_s3_bucket" "gs_web" {
   bucket = "groundschool.co.nz"
 
-  website_domain = "${var.site_name}"
-
   tags = {
     Environment = "${var.environment}"
   }
