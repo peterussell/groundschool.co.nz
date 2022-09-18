@@ -8,7 +8,7 @@ resource "aws_s3_bucket" "gs_web" {
 
 resource "aws_s3_bucket_acl" "gs_web_acl" {
   bucket = "${aws_s3_bucket.gs_web.id}"
-  acl = "public_read"
+  acl = "public-read"
 }
 
 resource "aws_s3_bucket_website_configuration" "gs_web_website_configuration" {
