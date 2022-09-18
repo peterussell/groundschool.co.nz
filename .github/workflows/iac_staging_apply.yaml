@@ -34,4 +34,5 @@ jobs:
       - name: Terraform apply
         run: >
           terraform -chdir=${GITHUB_WORKSPACE}/iac apply -auto-approve -input=false
-          -var='environment=staging' -var='deployer_role_arn=${{ secrets.AWS_STAGING_DEPLOY_ROLE_ARN }}' 
+          -var='environment=staging' -var='deployer_role_arn=${{ secrets.AWS_STAGING_DEPLOY_ROLE_ARN }}'
+          -var='site_name=stage.groundschool.co.nz'
