@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "gs_web" {
-  bucket = "groundschool.co.nz"
+  bucket = "${var.environment}.groundschool.co.nz"
 
   tags = {
     Environment = "${var.environment}"
