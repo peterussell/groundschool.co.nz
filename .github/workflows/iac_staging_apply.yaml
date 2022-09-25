@@ -29,7 +29,11 @@ jobs:
         uses: hashicorp/setup-terraform@v2
 
       - name: Terraform init
-        run: terraform -chdir=${GITHUB_WORKSPACE}/iac init
+        run: >
+          terraform -chdir=${GITHUB_WORKSPACE}/iac init -input=false
+          -backend-config='bucket=groundschool.co.nz-tf-state-staging'
+          -backend-config='key=staging.tfstate'
+          -backend-config='role_arn=${{ secrets.AWS_STAGING_DEPLOY_ROLE_ARN }}'
 
       - name: Terraform apply
         run: >
