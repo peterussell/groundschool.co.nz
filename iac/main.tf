@@ -7,6 +7,10 @@ terraform {
   }
 
   required_version = ">= 1.2.0"
+
+  backend "s3" {
+    region = "ap-southeast-2"
+  }
 }
 
 provider "aws" {
