@@ -41,7 +41,7 @@ jobs:
       #   run: ng test --browsers HeadlessChrome
 
       - name: Build
-        run: ng build --configuration production --aot
+        run: npm build:prod
 
       - name: Deploy
         if: success()
