@@ -10,7 +10,7 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('gs-web app is running!');
+    expect(page.getTitleText()).toEqual('change to force GH action');
   });
 
   afterEach(async () => {
