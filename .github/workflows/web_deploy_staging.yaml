@@ -31,7 +31,9 @@ jobs:
           node-version: 16
 
       - name: Install dependencies
-        run: yarn install
+        run: >
+          cd ${GITHUB_WORKSPACE}/web
+          yarn install
 
       # TODO: run tests
       # - name: Run tests
