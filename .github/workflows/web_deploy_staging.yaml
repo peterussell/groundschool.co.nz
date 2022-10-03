@@ -30,10 +30,11 @@ jobs:
         with:
           node-version: 16
 
+      - name: Change to working directory
+        run: cd ${GITHUB_WORKSPACE}/web
+
       - name: Install dependencies
-        run: >
-          cd ${GITHUB_WORKSPACE}/web
-          yarn install
+        run: yarn install
 
       # TODO: run tests
       # - name: Run tests
