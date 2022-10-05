@@ -22,7 +22,6 @@ provider "aws" {
 }
 
 ### Modules
-
 module "ecr" {
   source = "./modules/ecr"
 
@@ -42,4 +41,9 @@ module "s3" {
 
   # Variables
   environment = "${var.environment}"
+}
+
+### Outputs
+output "github_deployer_secret" {
+  value = "${module.iam.github_deployer_secret}"
 }
