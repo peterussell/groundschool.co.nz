@@ -6,7 +6,7 @@ resource "aws_iam_user" "github_deployer" {
   }
 }
 
-resource "aws_iam_access_key" "github_deployer_access_key_v2" {
+resource "aws_iam_access_key" "github_deployer_access_key" {
   user = "${aws_iam_user.github_deployer.name}"
 }
 
@@ -31,6 +31,12 @@ resource "aws_iam_user_policy" "github_deployer_policy" {
 EOF
 }
 
+# NB. changing this secret will write the secret value to the output of
+# terraform plan. This needs to be run locally to avoid the secret being
+# written to the GitHub workflow logs.
+# Once terraform apply has been run, the secret value can be accessed with
+# 'terraform output -json'.
 output "github_deployer_secret" {
-  value = "${aws_iam_access_key.github_deployer_access_key_v2.encrypted_secret}"
+  value = "${aws_iam_access_key.github_deployer_access_key.secret}"
+  sensitive = true
 }

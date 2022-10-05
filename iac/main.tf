@@ -46,4 +46,5 @@ module "s3" {
 ### Outputs
 output "github_deployer_secret" {
   value = "${module.iam.github_deployer_secret}"
+  sensitive =  true
 }
