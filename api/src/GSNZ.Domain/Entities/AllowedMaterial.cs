@@ -9,7 +9,5 @@ public class AllowedMaterial
     {
         this.Name = name;
         this.PurchaseUrl = purchaseUrl;
-
-        // change to force build
     }
 }

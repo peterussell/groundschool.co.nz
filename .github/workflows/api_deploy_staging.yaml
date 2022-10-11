@@ -35,7 +35,7 @@ jobs:
       - name: Build, tag, push docker image
         env:
           REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          REPOSITORY: 472857099023.dkr.ecr.ap-southeast-2.amazonaws.com/api
+          REPOSITORY: api
           IMAGE_TAG: ${{ github.sha }}
         run: |
           docker build -t $REGISTRY/$REPOSITORY:$IMAGE_TAG -f Dockerfile.prod .
