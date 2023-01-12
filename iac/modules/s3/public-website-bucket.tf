@@ -1,5 +1,9 @@
+output "website_bucket_regional_domain_name" {
+  value = aws_s3_bucket.gs_web.bucket_regional_domain_name
+}
+
 resource "aws_s3_bucket" "gs_web" {
-  bucket = "${var.environment}.groundschool.co.nz"
+  bucket = "${var.site_name}"
 
   tags = {
     Environment = "${var.environment}"
