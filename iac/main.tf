@@ -37,12 +37,13 @@ module "dynamodb" {
   environment = "${var.environment}"
 }
 
-module "cloudfront" {
-  source = "./modules/cloudfront"
-  environment = "${var.environment}"
-  site_name = "${var.site_name}"
-  website_bucket_regional_domain_name = "${module.s3.website_bucket_regional_domain_name}"
-}
+# TODO: enable once SSL certificate provisioning is working via TF
+# module "cloudfront" {
+#   source = "./modules/cloudfront"
+#   environment = "${var.environment}"
+#   site_name = "${var.site_name}"
+#   website_bucket_regional_domain_name = "${module.s3.website_bucket_regional_domain_name}"
+# }
 
 ### Outputs
 output "github_deployer_secret" {
