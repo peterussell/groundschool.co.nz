@@ -38,7 +38,7 @@ jobs:
 
       # TODO: run tests
       # - name: Run tests
-      #   run: ng test --browsers HeadlessChrome
+      #   run: ???
 
       - name: Build
         run: npm run build:prod
