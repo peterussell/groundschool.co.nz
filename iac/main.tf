@@ -21,14 +21,6 @@ provider "aws" {
   }
 }
 
-### Modules
-module "ecr" {
-  source = "./modules/ecr"
-
-  # Variables
-  environment = "${var.environment}"
-}
-
 module "iam" {
   source = "./modules/iam"
 
