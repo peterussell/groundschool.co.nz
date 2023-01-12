@@ -58,6 +58,11 @@ resource "aws_cloudfront_distribution" "s3-distribution" {
   #   minimum_protocol_version = "TLSv1.1_2016"
   # }
 
+  # tmp
+  viewer_certificate {
+    cloudfront_default_certificate = true
+  }
+
   tags = {
     Environment = "${var.environment}"
   }
