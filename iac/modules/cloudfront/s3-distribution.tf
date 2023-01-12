@@ -50,11 +50,13 @@ resource "aws_cloudfront_distribution" "s3-distribution" {
     }
   }
 
-  viewer_certificate {
-    acm_certificate_arn = "arn:aws:acm:us-east-1:246254583363:certificate/ab4875ce-78fd-494e-bae5-88ce0b28a40f"
-    ssl_support_method  = "sni-only"
-    minimum_protocol_version = "TLSv1.1_2016"
-  }
+  # TODO: enable SSL certificate creation (aws_acm_certificate) and validation (aws_acm_certificate_validation)
+  #       and assign to this CF distribution
+  # viewer_certificate {
+  #   acm_certificate_arn = "arn:aws:acm:us-east-1:246254583363:certificate/ab4875ce-78fd-494e-bae5-88ce0b28a40f"
+  #   ssl_support_method  = "sni-only"
+  #   minimum_protocol_version = "TLSv1.1_2016"
+  # }
 
   tags = {
     Environment = "${var.environment}"
