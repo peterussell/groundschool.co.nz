@@ -21,6 +21,7 @@ resource "aws_iam_user_policy" "sls_deployer_policy" {
     {
       "Action": [
         "lambda:*",
+        "apigateway:*",
         "execute-api:*",
         "cloudFormation:*",
         "s3:*",
