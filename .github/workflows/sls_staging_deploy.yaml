@@ -21,9 +21,9 @@ jobs:
           node-version: 16
 
       - name: Serverless deploy
-        uses: serverless/github-action@v3.1
+        uses: serverless/github-action@v3
         with:
-          args: -c "ls && cd ./sls && serverless deploy"
+          args: -c "cd ./sls && serverless deploy"
           entrypoint: /bin/sh
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.SLS_STAGING_DEPLOYER_ACCESS_KEY_ID }}
