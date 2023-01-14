@@ -37,6 +37,6 @@ EOF
 # Once terraform apply has been run, the secret value can be accessed with
 # 'terraform output -json'.
 output "sls_deployer_secret" {
-  value = "${aws_iam_access_key.github_deployer_access_key.secret}"
+  value = "${aws_iam_access_key.sls_deployer_access_key.secret}"
   sensitive = true
 }

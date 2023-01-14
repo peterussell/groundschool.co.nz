@@ -1,0 +1,29 @@
+name: Prod - deploy SLS
+
+on:
+  pull_request:
+    branches:
+      - "main"
+    paths:
+      - "sls/**"
+
+concurrency:
+  group: sls_deploy_prod
+
+jobs:
+  deploy:
+    name: SLS deploy (prod)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: Serverless deploy
+        uses: serverless/github-action@v3.1
+        with:
+          args: deploy
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.SLS_PROD_DEPLOYER_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.SLS_PROD_DEPLOYER_SECRET_ACCESS_KEY }}

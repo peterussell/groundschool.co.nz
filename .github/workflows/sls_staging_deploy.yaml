@@ -1,0 +1,29 @@
+name: Staging - deploy SLS
+
+on:
+  pull_request:
+    branches:
+      - "staging"
+    paths:
+      - "sls/**"
+
+concurrency:
+  group: sls_deploy_staging
+
+jobs:
+  deploy:
+    name: SLS deploy (staging)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: Serverless deploy
+        uses: serverless/github-action@v3.1
+        with:
+          args: deploy
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.SLS_STAGING_DEPLOYER_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.SLS_STAGING_DEPLOYER_SECRET_ACCESS_KEY }}
