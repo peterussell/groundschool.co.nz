@@ -23,7 +23,8 @@ resource "aws_iam_user_policy" "sls_deployer_policy" {
         "lambda:*",
         "execute-api:*",
         "cloudFormation:*",
-        "s3:*"
+        "s3:*",
+        "iam:*"
       ],
       "Effect": "Allow",
       "Resource": "*"
