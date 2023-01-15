@@ -1,4 +1,4 @@
-exams:
+getExams:
   handler: functions/exams/exams.get
   events:
     - httpApi:

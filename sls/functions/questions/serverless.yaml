@@ -1,10 +1,11 @@
-questions:
+getQuestions:
   handler: functions/questions/questions.get
   events:
     - httpApi:
         path: /questions
         method: get
 
+postQuestions:
   handler: functions/questions/questions.post
   events:
     - httpApi:
