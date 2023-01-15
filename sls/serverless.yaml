@@ -1,0 +1,11 @@
+service: web-api
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  region: ap-southeast-2
+  runtime: python3.9
+
+functions:
+  - ${file(./functions/exams/serverless.yaml)}
+  - ${file(./functions/questions/serverless.yaml)}
