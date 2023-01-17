@@ -1,6 +1,6 @@
 import json
 
-def questions_get(event, context):
+def get(event, context):
     body = {
         "message": "Hello from GET questions!",
         "input": event,
@@ -10,7 +10,7 @@ def questions_get(event, context):
 
     return response
 
-def questions_post(event, context):
+def post(event, context):
     body = {
         "message": "Hello from POST questions!",
         "input": event,

@@ -1,6 +1,6 @@
 import json
 
-def get_exams(event, context):
+def get(event, context):
     body = {
         "message": "Hello from GET exams!",
         "input": event,
