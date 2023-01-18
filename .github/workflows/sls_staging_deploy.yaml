@@ -1,18 +1,19 @@
-name: Staging - deploy SLS
+name: Staging - deploy web API (SLS)
 
 on:
   push:
     branches:
       - "staging"
     paths:
-      - "sls/**"
+      - "sls/services/web-api/**"
+      - "sls/common/**"
 
 concurrency:
-  group: sls_deploy_staging
+  group: web_api_sls_deploy_staging
 
 jobs:
   deploy:
-    name: SLS deploy (staging)
+    name: Web API (SLS) deploy (staging)
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository
@@ -26,7 +27,7 @@ jobs:
       - name: Serverless deploy
         uses: serverless/github-action@v3
         with:
-          args: -c "cd ./sls && serverless deploy"
+          args: -c "cd ./sls/services/web-api/src && serverless deploy"
           entrypoint: /bin/sh
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.SLS_STAGING_DEPLOYER_ACCESS_KEY_ID }}
