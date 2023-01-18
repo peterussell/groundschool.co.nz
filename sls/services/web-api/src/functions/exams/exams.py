@@ -1,17 +1,9 @@
 import json
 
-def get(event, context):
-    body = { "availableExams": _get_exams() }
-    response = {
-        "statusCode": 200,
-        "headers": {
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': '*',
-        },
-        "body": json.dumps(body)
-    }
+import common.response_utils as response_utils
 
-    return response
+def get(event, context):
+    return response_utils.make_200({ "availableExams": _get_exams() })
 
 def _get_exams():
     # TODO: should come from database
