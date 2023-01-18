@@ -2,5 +2,5 @@ getExams:
   handler: functions/exams/exams.get
   events:
     - httpApi:
-        path: /exams
+        path: /v1/exams
         method: get

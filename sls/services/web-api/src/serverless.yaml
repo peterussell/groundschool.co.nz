@@ -7,6 +7,12 @@ provider:
   region: ap-southeast-2
   runtime: python3.9
 
+custom:
+  functionsBasePath: functions
+
 functions:
   - ${file(./functions/exams/serverless.yaml)}
   - ${file(./functions/questions/serverless.yaml)}
+
+plugins:
+  - serverless-functions-base-path

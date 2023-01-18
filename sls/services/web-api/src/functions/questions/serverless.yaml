@@ -2,12 +2,12 @@ getQuestions:
   handler: functions/questions/questions.get
   events:
     - httpApi:
-        path: /questions
+        path: /v1/questions
         method: get
 
 postQuestions:
   handler: functions/questions/questions.post
   events:
     - httpApi:
-        path: /questions
+        path: /v1/questions
         method: post
