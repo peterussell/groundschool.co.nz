@@ -1,4 +1,5 @@
 service: web-api
+projectDir: '../../../'
 frameworkVersion: '3'
 
 provider:
