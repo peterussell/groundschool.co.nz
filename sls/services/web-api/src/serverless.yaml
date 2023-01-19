@@ -11,8 +11,8 @@ custom:
   functionsBasePath: functions
 
 functions:
-  - ${file(./functions/exams/serverless.yaml)}
-  - ${file(./functions/questions/serverless.yaml)}
+  - ${file(./exams/serverless.yaml)}
+  - ${file(./questions/serverless.yaml)}
 
 plugins:
   - serverless-functions-base-path
