@@ -5,6 +5,18 @@ provider:
   name: aws
   region: ap-southeast-2
   runtime: python3.9
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+      Resource:
+        - { "Fn:GetAtt": ["examsTable", "Arn" ]}
+        - { "Fn:GetAtt": ["examQuestionsTable", "Arn" ]}
   layers:
     - !Ref CommonLambdaLayer
 
