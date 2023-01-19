@@ -20,6 +20,5 @@ functions:
   - ${file(./functions/questions/serverless.yaml)}
 
 resources:
-  Resources:
-    - ${file(./tables/exams.yaml)}
-    - ${file(./tables/exam-questions.yaml)}
+  - ${file(./tables/exams.yaml)}
+  - ${file(./tables/exam-questions.yaml)}
