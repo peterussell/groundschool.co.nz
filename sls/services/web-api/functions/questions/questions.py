@@ -22,7 +22,7 @@ def post(event, context):
         "input": event,
     }
 
-    return response_utils.make_200({ 'message': 'Hello from POST questions' })
+    return response_utils.make_200({ 'message': 'Hello from POST questions!' })
 
 
 def _get_questions(exam_id, desired_count):
