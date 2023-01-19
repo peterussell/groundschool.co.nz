@@ -15,8 +15,8 @@ provider:
         - dynamodb:UpdateItem
         - dynamodb:DeleteItem
       Resource:
-        - { "Fn:GetAtt": ["examsTable", "Arn" ]}
-        - { "Fn:GetAtt": ["examQuestionsTable", "Arn" ]}
+        - { "Fn::GetAtt": [ "examsTable", "Arn" ]}
+        - { "Fn::GetAtt": [ "examQuestionsTable", "Arn" ]}
   layers:
     - !Ref CommonLambdaLayer
 
