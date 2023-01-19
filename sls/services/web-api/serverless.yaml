@@ -18,3 +18,8 @@ layers:
 functions:
   - ${file(./functions/exams/serverless.yaml)}
   - ${file(./functions/questions/serverless.yaml)}
+
+resources:
+  Resources:
+    - ${file(./tables/exams.yaml)}
+    - ${file(./tables/exam-questions.yaml)}

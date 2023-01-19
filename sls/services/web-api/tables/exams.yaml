@@ -1,0 +1,26 @@
+examsTable:
+  Type: AWS::DynamoDB::Table
+  Properties:
+    TableName: exams
+    AttributeDefinitions:
+      - AttributeName: id
+        AttributeType: S
+      - AttributeName: licenseType
+        AttributeType: S
+    KeySchema:
+      - AttributeName: id
+        KeyType: HASH
+    BillingMode: PROVISIONED
+    ProvisionedThroughput:
+      ReadCapacityUnits: 1
+      WriteCapacityUnits: 1
+    GlobalSecondaryIndexes:
+      - IndexName: licenseTypeIndex
+        KeySchema:
+          - AttributeName: licenseType
+            KeyType: HASH
+        Projection:
+          ProjectionType: ALL
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
