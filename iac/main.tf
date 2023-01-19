@@ -32,11 +32,6 @@ module "s3" {
   site_name = "${var.site_name}"
 }
 
-module "dynamodb" {
-  source = "./modules/dynamodb"
-  environment = "${var.environment}"
-}
-
 # TODO: enable once SSL certificate provisioning is working via TF
 # module "cloudfront" {
 #   source = "./modules/cloudfront"
