@@ -10,7 +10,7 @@ provider:
 
 layers:
   common:
-    path: ./common
+    path: common
     compatibleRuntimes:
       - python3.9
     description: 'Common utils shared across functions'
