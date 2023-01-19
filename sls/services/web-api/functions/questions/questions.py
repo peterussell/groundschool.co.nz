@@ -1,7 +1,7 @@
-import common.db_utils as db_utils
-import common.list_utils as list_utils
-import common.request_utils as request_utils
-import common.response_utils as response_utils
+import db_utils
+import list_utils
+import request_utils
+import response_utils
 
 exam_questions_table_name = 'exam-questions'
 

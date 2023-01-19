@@ -1,19 +1,11 @@
-import json
-
-import common.response_utils as response_utils
+import response_utils
 
 def get(event, context):
     try:
         return response_utils.make_200({ "availableExams": _get_exams() })
     except Exception as e:
-        return {
-            'statusCode': 500,
-            'headers': {
-                'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': '*'
-            },
-            'body': json.dumps({ 'error': e })
-        }
+        return response_utils.make_500(str(e))
+
 
 def _get_exams():
     # TODO: should come from database
