@@ -6,7 +6,6 @@ on:
       - "staging"
     paths:
       - "sls/services/web-api/**"
-      - "sls/common/**"
 
 concurrency:
   group: web_api_sls_deploy_staging
