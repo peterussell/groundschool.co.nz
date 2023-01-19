@@ -26,7 +26,8 @@ resource "aws_iam_user_policy" "sls_deployer_policy" {
         "cloudFormation:*",
         "s3:*",
         "iam:*",
-        "logs:*"
+        "logs:*",
+        "dynamodb:*"
       ],
       "Effect": "Allow",
       "Resource": "*"
