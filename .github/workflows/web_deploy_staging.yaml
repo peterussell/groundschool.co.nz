@@ -41,8 +41,8 @@ jobs:
       #   run: ???
 
       - name: Build
-        run: npm run build:prod
+        run: yarn run build
 
       - name: Deploy
         if: success()
-        run: aws s3 sync ./dist/gs-web s3://staging.groundschool.co.nz/
+        run: aws s3 sync ./build s3://staging.groundschool.co.nz/
