@@ -1,49 +1,60 @@
 {
-  "name": "gs-web",
-  "version": "0.0.0",
-  "scripts": {
-    "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "test": "ng test",
-    "lint": "ng lint",
-    "e2e": "ng e2e",
-    "build:prod": "ng build --configuration production --aot"
-  },
+  "name": "gs",
+  "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@angular/animations": "^14.2.1",
-    "@angular/common": "^14.2.1",
-    "@angular/compiler": "^14.2.1",
-    "@angular/core": "^14.2.1",
-    "@angular/forms": "^14.2.1",
-    "@angular/platform-browser": "^14.2.1",
-    "@angular/platform-browser-dynamic": "^14.2.1",
-    "@angular/router": "^14.2.1",
-    "@auth0/auth0-angular": "^1.10.1",
-    "rxjs": "~6.6.7",
-    "tslib": "^2.0.0",
-    "zone.js": "~0.11.4"
+    "@material-ui/core": "^4.11.3",
+    "@material-ui/icons": "^4.11.2",
+    "@material-ui/lab": "^4.0.0-alpha.58",
+    "@reduxjs/toolkit": "^1.5.1",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
+    "@types/jest": "^26.0.15",
+    "@types/node": "^12.0.0",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@types/react-helmet": "^6.1.2",
+    "axios": "^0.21.1",
+    "formik": "^2.2.9",
+    "ga-4-react": "^0.1.281",
+    "notistack": "^1.0.6",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-helmet": "^6.1.0",
+    "react-jss": "^10.6.0",
+    "react-redux": "^7.2.4",
+    "react-router-dom": "^5.2.0",
+    "react-scripts": "4.0.3",
+    "typescript": "^4.1.2",
+    "web-vitals": "^1.0.1",
+    "yup": "^0.32.9"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^14.2.2",
-    "@angular/cli": "^14.2.2",
-    "@angular/compiler-cli": "^14.2.1",
-    "@angular/language-service": "^14.2.1",
-    "@types/jasmine": "~3.6.0",
-    "@types/jasminewd2": "~2.0.3",
-    "@types/node": "^12.11.1",
-    "codelyzer": "^6.0.0",
-    "jasmine-core": "~3.6.0",
-    "jasmine-spec-reporter": "~5.0.0",
-    "karma": "~6.4.0",
-    "karma-chrome-launcher": "~3.1.0",
-    "karma-coverage-istanbul-reporter": "~3.0.2",
-    "karma-jasmine": "~4.0.0",
-    "karma-jasmine-html-reporter": "^1.5.0",
-    "protractor": "~7.0.0",
-    "ts-node": "~7.0.0",
-    "tslint": "~6.1.0",
-    "typescript": "~4.6.4"
+    "@types/react-router-dom": "^5.1.7"
   }
 }
