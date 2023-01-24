@@ -21,6 +21,12 @@ provider "aws" {
   }
 }
 
+# Used to get the existing SSL certificate from us-east-1
+provider "aws" {
+  alias = "virginia"
+  region = "us-east-1"
+}
+
 module "iam" {
   source = "./modules/iam"
   environment = "${var.environment}"

@@ -1,3 +1,10 @@
+# Get the existing SSL certificate from us-east-1
+data "aws_acm_certificate" "gs_certificate" {
+  domain = "*.groundschool.co.nz"
+  statuses = ["ISSUED"]
+  provider = aws.virginia
+}
+
 resource "aws_cloudfront_distribution" "s3-distribution" {
   origin {
     domain_name = "${var.website_bucket_regional_domain_name}"
