@@ -49,6 +49,7 @@ module "cloudfront" {
   environment = "${var.environment}"
   site_name = "${var.site_name}"
   website_bucket_regional_domain_name = "${module.s3.website_bucket_regional_domain_name}"
+  certificate_arn = "${data.aws_acm_certificate.gs_certificate}"
 }
 
 ### Outputs
