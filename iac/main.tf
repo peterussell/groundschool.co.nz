@@ -28,7 +28,7 @@ provider "aws" {
 }
 
 data "aws_acm_certificate" "gs_certificate" {
-  domain = "*.groundschool.co.nz"
+  domain = "groundschool.co.nz"
   statuses = ["ISSUED"]
   provider = aws.virginia
 }
