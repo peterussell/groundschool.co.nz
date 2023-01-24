@@ -27,6 +27,12 @@ provider "aws" {
   region = "us-east-1"
 }
 
+data "aws_acm_certificate" "gs_certificate" {
+  domain = "*.groundschool.co.nz"
+  statuses = ["ISSUED"]
+  provider = aws.virginia
+}
+
 module "iam" {
   source = "./modules/iam"
   environment = "${var.environment}"
