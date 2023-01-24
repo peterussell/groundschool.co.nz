@@ -5,7 +5,7 @@ resource "aws_cloudfront_distribution" "s3-distribution" {
   }
 
   enabled = true
-  aliases = ["${var.site_name}", "www.${var.site_name}"]
+  aliases = ["${var.site_name}"]   # tmp - fix this for prod, needs to include 'www'
   default_root_object = "index.html"
 
   default_cache_behavior {

@@ -57,3 +57,8 @@ output "github_deployer_secret" {
   value = "${module.iam.github_deployer_secret}"
   sensitive =  true
 }
+
+# tmp
+output "acm_certificate_arn" {
+  value = "${data.aws_acm_certificate.gs_certificate.arn}"
+}
