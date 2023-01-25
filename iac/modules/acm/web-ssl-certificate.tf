@@ -1,5 +1,5 @@
 output "gs_cert_arn" {
-  value = aws_acm_certificate_validation.gs_cert_validation.arn
+  value = aws_acm_certificate_validation.gs_cert_validation.certificate_arn
 }
 
 resource "aws_acm_certificate" "gs_cert" {
@@ -18,7 +18,7 @@ resource "aws_acm_certificate" "gs_cert" {
 }
 
 resource "aws_route53_record" "gs_cert_validation_records" {
-  provider = aws.default
+  provider = aws
 
   for_each = {
     for dvo in aws_acm_certificate.gs_cert.domain_validation_options : dvo.domain_name => {

@@ -40,7 +40,7 @@ module "acm" {
   environment = "${var.environment}"
   site_name = "${var.site_name}"
   providers = {
-    aws.default = aws
+    aws = aws
     aws.virginia = aws.virginia
   }
 }
