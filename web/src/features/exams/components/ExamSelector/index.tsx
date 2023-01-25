@@ -88,7 +88,7 @@ export const ExamSelector = () => {
         <Grid container>
           <Grid item md={10}>
             <Typography variant="body1">
-              GroundSchool question cover the syllabus for New Zealand aviation exams.
+              The GroundSchool question bank covers the syllabus for New Zealand's CAA flight crew exams.
               Use the exam simulator to practice sitting a full ASPEQ-style theory test, or
               select a subset of questions for quick review.
             </Typography>
