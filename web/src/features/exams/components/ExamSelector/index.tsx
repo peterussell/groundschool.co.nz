@@ -89,7 +89,7 @@ export const ExamSelector = () => {
           <Grid item md={10}>
             <Typography variant="body1">
               GroundSchool question banks are crowd-sourced from the
-              kiwi pilot community. Use the exam simulator to practice sitting a full ASPEQ-style
+              Kiwi pilot community. Use the exam simulator to practice sitting a full ASPEQ-style
               exam, or select a smaller number of questions for quick review.
             </Typography>
           </Grid>
