@@ -21,24 +21,22 @@ provider "aws" {
   }
 }
 
-# tmp -- not used, we should provision and get the certificate from within the
-# account. Left here as an example. Remove when working.
-# # Used to get the existing SSL certificate from us-east-1
-# provider "aws" {
-#   alias = "virginia"
-#   region = "us-east-1"
-# }
-
-# data "aws_acm_certificate" "gs_certificate" {
-#   domain = "groundschool.co.nz"
-#   statuses = ["ISSUED"]
-#   provider = aws.virginia
-# }
+provider "aws" {
+  alias = "virginia"
+  region = "us-east-1"
+}
 
 module "route53" {
   source = "./modules/route53"
+  cloudfront_domain_name = "${module.cloudfront.cloudfront_domain_name}"
+  cloudfront_hosted_zone_id = "${module.cloudfront.cloudfront_hosted_zone_id}"
   environment = "${var.environment}"
   site_name = "${var.site_name}"
+}
+
+module "acm" {
+  source = "./modules/acm"
+  route53_zone_id = "${module.route53.route53_zone_id}"
 }
 
 module "iam" {
@@ -52,13 +50,13 @@ module "s3" {
   site_name = "${var.site_name}"
 }
 
-# module "cloudfront" {
-#   source = "./modules/cloudfront"
-#   environment = "${var.environment}"
-#   site_name = "${var.site_name}"
-#   website_bucket_regional_domain_name = "${module.s3.website_bucket_regional_domain_name}"
-#   certificate_arn = "${data.aws_acm_certificate.gs_certificate.arn}"
-# }
+module "cloudfront" {
+  source = "./modules/cloudfront"
+  environment = "${var.environment}"
+  site_name = "${var.site_name}"
+  website_bucket_regional_domain_name = "${module.s3.website_bucket_regional_domain_name}"
+  certificate_arn = "${module.acm.gs_cert_arn}"
+}
 
 ### Outputs
 output "github_deployer_secret" {

@@ -1,3 +1,11 @@
+output "cloudfront_domain_name" {
+  value = aws_cloudfront_distribution.s3-distribution.domain_name
+}
+
+output "cloudfront_hosted_zone_id" {
+  value = aws_cloudfront_distribution.s3-distribution.hosted_zone_id
+}
+
 resource "aws_cloudfront_distribution" "s3-distribution" {
   origin {
     domain_name = "${var.website_bucket_regional_domain_name}"
@@ -5,7 +13,8 @@ resource "aws_cloudfront_distribution" "s3-distribution" {
   }
 
   enabled = true
-  aliases = ["${var.site_name}"]   # tmp - fix this for prod, needs to include 'www'
+  aliases = ["${var.site_name}"]   # TODO: fix required for prod. Prod should also include 'www' (as below)
+  # aliases = ["${var.site_name}", "www.${var.site_name}"]
   default_root_object = "index.html"
 
   default_cache_behavior {
