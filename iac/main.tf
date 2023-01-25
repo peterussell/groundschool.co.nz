@@ -37,6 +37,8 @@ module "route53" {
 module "acm" {
   source = "./modules/acm"
   route53_zone_id = "${module.route53.route53_zone_id}"
+  environment = "${var.environment}"
+  site_name = "${var.site_name}"
 }
 
 module "iam" {

@@ -3,6 +3,8 @@ output "gs_cert_arn" {
 }
 
 resource "aws_acm_certificate" "gs_cert" {
+  provider = aws.virginia
+
   domain_name = "${var.site_name}"
   validation_method = "DNS"
 
@@ -33,6 +35,8 @@ resource "aws_route53_record" "gs_cert_validation_records" {
 }
 
 resource "aws_acm_certificate_validation" "gs_cert_validation" {
+  provider = aws.virginia
+
   certificate_arn = aws_acm_certificate.gs_cert.arn
   validation_record_fqdns = [for record in aws_route53_record.gs_cert_validation_records : record.fqdn]
 }
