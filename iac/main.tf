@@ -52,21 +52,16 @@ module "s3" {
   site_name = "${var.site_name}"
 }
 
-module "cloudfront" {
-  source = "./modules/cloudfront"
-  environment = "${var.environment}"
-  site_name = "${var.site_name}"
-  website_bucket_regional_domain_name = "${module.s3.website_bucket_regional_domain_name}"
-  certificate_arn = "${data.aws_acm_certificate.gs_certificate.arn}"
-}
+# module "cloudfront" {
+#   source = "./modules/cloudfront"
+#   environment = "${var.environment}"
+#   site_name = "${var.site_name}"
+#   website_bucket_regional_domain_name = "${module.s3.website_bucket_regional_domain_name}"
+#   certificate_arn = "${data.aws_acm_certificate.gs_certificate.arn}"
+# }
 
 ### Outputs
 output "github_deployer_secret" {
   value = "${module.iam.github_deployer_secret}"
   sensitive =  true
-}
-
-# tmp
-output "acm_certificate_arn" {
-  value = "${data.aws_acm_certificate.gs_certificate.arn}"
 }
