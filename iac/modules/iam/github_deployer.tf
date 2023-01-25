@@ -21,7 +21,8 @@ resource "aws_iam_user_policy" "github_deployer_policy" {
     {
       "Action": [
         "ecr:*",
-        "s3:PutObject"
+        "s3:PutObject",
+        "s3:PutObjectAcl"
       ],
       "Effect": "Allow",
       "Resource": "*"

@@ -90,7 +90,7 @@ export const ExamSelector = () => {
             <Typography variant="body1">
               GroundSchool question cover the syllabus for New Zealand aviation exams.
               Use the exam simulator to practice sitting a full ASPEQ-style theory test, or
-              select a smaller number of questions for quick review.
+              select a subset of questions for quick review.
             </Typography>
           </Grid>
         </Grid>
