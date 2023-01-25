@@ -21,16 +21,24 @@ provider "aws" {
   }
 }
 
-# Used to get the existing SSL certificate from us-east-1
-provider "aws" {
-  alias = "virginia"
-  region = "us-east-1"
-}
+# tmp -- not used, we should provision and get the certificate from within the
+# account. Left here as an example. Remove when working.
+# # Used to get the existing SSL certificate from us-east-1
+# provider "aws" {
+#   alias = "virginia"
+#   region = "us-east-1"
+# }
 
-data "aws_acm_certificate" "gs_certificate" {
-  domain = "groundschool.co.nz"
-  statuses = ["ISSUED"]
-  provider = aws.virginia
+# data "aws_acm_certificate" "gs_certificate" {
+#   domain = "groundschool.co.nz"
+#   statuses = ["ISSUED"]
+#   provider = aws.virginia
+# }
+
+module "route53" {
+  source = "./modules/route53"
+  environment = "${var.environment}"
+  site_name = "${var.site_name}"
 }
 
 module "iam" {
