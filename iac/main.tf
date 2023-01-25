@@ -36,10 +36,13 @@ module "route53" {
 
 module "acm" {
   source = "./modules/acm"
-  provider = aws.virginia
   route53_zone_id = "${module.route53.route53_zone_id}"
   environment = "${var.environment}"
   site_name = "${var.site_name}"
+  providers = {
+    aws.default = aws
+    aws.virginia = aws.virginia
+  }
 }
 
 module "iam" {
