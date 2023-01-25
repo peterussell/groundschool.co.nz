@@ -24,6 +24,10 @@ provider "aws" {
 provider "aws" {
   alias = "virginia"
   region = "us-east-1"
+
+  assume_role {
+    role_arn = "${var.deployer_role_arn}"
+  }
 }
 
 module "route53" {
