@@ -57,7 +57,9 @@ export abstract class ApiClient {
 
   private addBaseUrlAndCommonHeaders = async (params: AxiosRequestConfig) => ({
     ...params,
-    baseURL: "https://0y2ubme7cc.execute-api.ap-southeast-2.amazonaws.com/v1",
+    baseURL: (process.env.NODE_ENV === "development")
+      ? "https://cuix96cwv5.execute-api.ap-southeast-2.amazonaws.com/v1"
+      : process.env.REACT_APP_GS_API_ENDPOINT,
     headers: {
       ...params.headers,
     },
