@@ -5,12 +5,12 @@ s3client = boto3.client('s3')
 ddbclient = boto3.resource('dynamodb')
 
 def seed_exams(event, context):
-    return _seed('exams')
+    return _seed('exams', event, context)
 
 def seed_exam_questions(event, context):
-    return _seed('exam-questions')
+    return _seed('exam-questions', event, context)
 
-def _seed(table_name):
+def _seed(table_name, event, context):
     bucketname = event['Records'][0]['s3']['bucket']['name']
     jsonfilename = event['Records'][0]['s3']['object']['key'].strip()
 
