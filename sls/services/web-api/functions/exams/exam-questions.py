@@ -19,6 +19,6 @@ def get(event, context):
 def _get_questions(exam_id, desired_count):
     all_questions = _get_all_questions(exam_id)
     return list_utils.get_random_items(all_questions, desired_count)
-  
+
 def _get_all_questions(exam_id):
     return db_utils.query_table(exam_questions_table_name, 'examIdIndex', 'examId', exam_id)
