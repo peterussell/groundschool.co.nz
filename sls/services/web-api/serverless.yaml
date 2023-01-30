@@ -31,6 +31,7 @@ layers:
 functions:
   - ${file(./functions/exams/serverless.yaml)}
   - ${file(./functions/questions/serverless.yaml)}
+  - ${file(./functions/helpers/serverless.yaml)}
 
 resources:
   - ${file(./tables/exams.yaml)}

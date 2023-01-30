@@ -1,0 +1,5 @@
+seedExams:
+  handler: functions/helpers/dynamodb.seed_exams
+
+seedExamQuestions:
+  handler: functions/helpers/dynamodb.seed_exam_questions
