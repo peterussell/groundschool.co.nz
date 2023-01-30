@@ -17,9 +17,9 @@ provider:
         - dynamodb:BatchGetItem
       Resource:
         - { "Fn::GetAtt": [ "examsTable", "Arn" ]}
-        - { "Fn::GetAtt": [ "examsTable", "Arn" ]}/index/*
+        - { "Fn::Join": [ "/", [ { "Fn::GetAtt": [ "examsTable", "Arn" ]}, "index", "*" ]]}
         - { "Fn::GetAtt": [ "examQuestionsTable", "Arn" ]}
-        - { "Fn::GetAtt": [ "examQuestionsTable", "Arn" ]}/index/*
+        - { "Fn::Join": [ "/", [ { "Fn::GetAtt": [ "examsQuestionsTable", "Arn" ]}, "index", "*" ]]}
 
     - Effect: Allow
       Action:
