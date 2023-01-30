@@ -8,7 +8,7 @@ seedExams:
 
 seedExamQuestions:
   handler: functions/helpers/dynamodb.seed_exam_questions
-  timeout: 6000
+  timeout: 900
   events:
     - httpApi:
         path: /v1/helpers/seed/exam-questions
