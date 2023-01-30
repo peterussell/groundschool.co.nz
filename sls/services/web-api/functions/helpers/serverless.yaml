@@ -1,5 +1,13 @@
 seedExams:
   handler: functions/helpers/dynamodb.seed_exams
+  events:
+    - httpApi:
+        path: /v1/helpers/seed/exams
+        method: get
 
 seedExamQuestions:
   handler: functions/helpers/dynamodb.seed_exam_questions
+  events:
+    - httpApi:
+        path: /v1/helpers/seed/exam-questions
+        method: get
