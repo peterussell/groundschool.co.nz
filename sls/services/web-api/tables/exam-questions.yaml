@@ -13,7 +13,7 @@ Resources:
           KeyType: HASH
       BillingMode: PROVISIONED
       ProvisionedThroughput:
-        ReadCapacityUnits: 2
+        ReadCapacityUnits: 3
         WriteCapacityUnits: 1
       GlobalSecondaryIndexes:
         - IndexName: examIdIndex
