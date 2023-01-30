@@ -19,7 +19,7 @@ provider:
         - { "Fn::GetAtt": [ "examsTable", "Arn" ]}
         - { "Fn::Join": [ "/", [ { "Fn::GetAtt": [ "examsTable", "Arn" ]}, "index", "*" ]]}
         - { "Fn::GetAtt": [ "examQuestionsTable", "Arn" ]}
-        - { "Fn::Join": [ "/", [ { "Fn::GetAtt": [ "examsQuestionsTable", "Arn" ]}, "index", "*" ]]}
+        - { "Fn::Join": [ "/", [ { "Fn::GetAtt": [ "examQuestionsTable", "Arn" ]}, "index", "*" ]]}
 
     - Effect: Allow
       Action:
