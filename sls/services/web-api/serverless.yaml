@@ -24,6 +24,7 @@ provider:
         - s3:GetObject
       Resource:
         - arn:aws:s3:::gsnz-staging-data-migration
+        - arn:aws:s3:::gsnz-staging-data-migration/*
   layers:
     - !Ref CommonLambdaLayer
 
