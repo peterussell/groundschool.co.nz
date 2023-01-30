@@ -26,7 +26,7 @@ jobs:
       - name: Serverless deploy
         uses: serverless/github-action@v3
         with:
-          args: -c "cd ./sls/services/web-api && serverless deploy"
+          args: -c "cd ./sls/services/web-api && serverless deploy --verbose"
           entrypoint: /bin/sh
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.SLS_STAGING_DEPLOYER_ACCESS_KEY_ID }}

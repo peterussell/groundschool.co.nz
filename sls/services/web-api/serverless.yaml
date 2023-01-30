@@ -18,8 +18,6 @@ provider:
       Resource:
         - arn:aws:dynamodb:ap-southeast-2:472857099023:table/exams
         - arn:aws:dynamodb:ap-southeast-2:472857099023:table/exam-questions
-        # - { "Fn::GetAtt": [ "examsTable", "Arn" ]}
-        # - { "Fn::GetAtt": [ "examQuestionsTable", "Arn" ]}
   layers:
     - !Ref CommonLambdaLayer
 
