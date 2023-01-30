@@ -16,8 +16,14 @@ provider:
         - dynamodb:DeleteItem
         - dynamodb:BatchGetItem
       Resource:
-        - arn:aws:dynamodb:ap-southeast-2:472857099023:table/exams
-        - arn:aws:dynamodb:ap-southeast-2:472857099023:table/exam-questions
+        - { "Fn::GetAtt": [ "examsTable", "Arn" ]}
+        - { "Fn::GetAtt": [ "examQuestionsTable", "Arn" ]}
+
+    - Effect: Allow
+      Action:
+        - s3:GetObject
+      Resource:
+        - arn:aws:s3:::gsnz-staging-data-migration
   layers:
     - !Ref CommonLambdaLayer
 
