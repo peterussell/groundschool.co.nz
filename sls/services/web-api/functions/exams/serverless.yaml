@@ -4,3 +4,10 @@ getExams:
     - httpApi:
         path: /v1/exams
         method: get
+
+getQuestions:
+  handler: functions/exams/exam-questions.get
+  events:
+    - httpApi:
+        path: /v1/exams/{examId}/questions
+        method: get
