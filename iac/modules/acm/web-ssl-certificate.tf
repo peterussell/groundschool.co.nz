@@ -6,6 +6,7 @@ resource "aws_acm_certificate" "gs_cert" {
   provider = aws.virginia
 
   domain_name = "${var.site_name}"
+  subject_alternative_names = var.environment == "prod" ? ["www.${var.site_name}"] : []
   validation_method = "DNS"
 
   lifecycle {
