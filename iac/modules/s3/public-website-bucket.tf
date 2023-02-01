@@ -3,7 +3,7 @@ output "website_bucket_regional_domain_name" {
 }
 
 resource "aws_s3_bucket" "gs_web" {
-  bucket = "${var.site_name}"
+  bucket = "${var.environment}.groundschool.co.nz"
 
   tags = {
     Environment = "${var.environment}"

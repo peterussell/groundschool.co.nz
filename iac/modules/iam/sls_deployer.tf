@@ -38,8 +38,10 @@ EOF
 }
 
 # NB. changing this secret will write the secret value to the output of
-# terraform plan. This needs to be run locally to avoid the secret being
-# written to the GitHub workflow logs.
+# terraform plan. This either needs to be a) run locally to avoid the secret being
+# written to the GitHub workflow logs, or b) have the secret changed via the
+# AWS CLI or console immediately after deploy.
+
 # Once terraform apply has been run, the secret value can be accessed with
 # 'terraform output -json'.
 output "sls_deployer_secret" {

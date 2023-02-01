@@ -20,7 +20,6 @@ resource "aws_iam_user_policy" "github_deployer_policy" {
   "Statement": [
     {
       "Action": [
-        "ecr:*",
         "s3:PutObject",
         "s3:PutObjectAcl"
       ],
@@ -33,8 +32,10 @@ EOF
 }
 
 # NB. changing this secret will write the secret value to the output of
-# terraform plan. This needs to be run locally to avoid the secret being
-# written to the GitHub workflow logs.
+# terraform plan. This either needs to be a) run locally to avoid the secret being
+# written to the GitHub workflow logs, or b) have the secret changed via the
+# AWS CLI or console immediately after deploy.
+
 # Once terraform apply has been run, the secret value can be accessed with
 # 'terraform output -json'.
 output "github_deployer_secret" {
