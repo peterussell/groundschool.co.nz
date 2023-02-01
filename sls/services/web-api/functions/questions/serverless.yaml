@@ -1,0 +1,6 @@
+postQuestions:
+  handler: functions/questions/questions.post
+  events:
+    - httpApi:
+        path: /v1/questions
+        method: post

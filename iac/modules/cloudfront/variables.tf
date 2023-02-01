@@ -1,4 +1,4 @@
-variable "deployer_role_arn" {
+variable "website_bucket_regional_domain_name" {
   type = string
 }
 
@@ -7,5 +7,9 @@ variable "environment" {
 }
 
 variable "site_name" {
+  type = string
+}
+
+variable "certificate_arn" {
   type = string
 }

@@ -1,0 +1,47 @@
+service: web-api
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  region: ap-southeast-2
+  runtime: python3.9
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - dynamodb:Query
+        - dynamodb:Scan
+        - dynamodb:GetItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+        - dynamodb:BatchGetItem
+      Resource:
+        - { "Fn::GetAtt": [ "examsTable", "Arn" ]}
+        - { "Fn::Join": [ "/", [ { "Fn::GetAtt": [ "examsTable", "Arn" ]}, "index", "*" ]]}
+        - { "Fn::GetAtt": [ "examQuestionsTable", "Arn" ]}
+        - { "Fn::Join": [ "/", [ { "Fn::GetAtt": [ "examQuestionsTable", "Arn" ]}, "index", "*" ]]}
+
+    - Effect: Allow
+      Action:
+        - s3:GetObject
+      Resource:
+        - arn:aws:s3:::gsnz-staging-data-migration
+        - arn:aws:s3:::gsnz-staging-data-migration/*
+  layers:
+    - !Ref CommonLambdaLayer
+
+layers:
+  common:
+    path: common
+    compatibleRuntimes:
+      - python3.9
+    description: 'Common utilities shared across functions'
+
+functions:
+  - ${file(./functions/exams/serverless.yaml)}
+  - ${file(./functions/questions/serverless.yaml)}
+  - ${file(./functions/helpers/serverless.yaml)}
+
+resources:
+  - ${file(./tables/exams.yaml)}
+  - ${file(./tables/exam-questions.yaml)}

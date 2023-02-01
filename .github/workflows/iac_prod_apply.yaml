@@ -29,9 +29,14 @@ jobs:
         uses: hashicorp/setup-terraform@v2
 
       - name: Terraform init
-        run: terraform -chdir=${GITHUB_WORKSPACE}/iac init
+        run: >
+          terraform -chdir=${GITHUB_WORKSPACE}/iac init -input=false
+          -backend-config='bucket=groundschool.co.nz-tf-state-prod'
+          -backend-config='key=prod.tfstate'
+          -backend-config='role_arn=${{ secrets.AWS_PROD_DEPLOY_ROLE_ARN }}'
 
       - name: Terraform apply
         run: >
           terraform -chdir=${GITHUB_WORKSPACE}/iac apply -auto-approve -input=false
-          -var='environment=prod' -var='deployer_role_arn=${{ secrets.AWS_PROD_DEPLOY_ROLE_ARN }}' 
+          -var='environment=prod' -var='deployer_role_arn=${{ secrets.AWS_PROD_DEPLOY_ROLE_ARN }}'
+          -var='site_name=groundschool.co.nz'

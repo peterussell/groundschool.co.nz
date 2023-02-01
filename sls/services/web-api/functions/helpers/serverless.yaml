@@ -1,0 +1,15 @@
+seedExams:
+  handler: functions/helpers/dynamodb.seed_exams
+  timeout: 60
+  events:
+    - httpApi:
+        path: /v1/helpers/seed/exams
+        method: get
+
+seedExamQuestions:
+  handler: functions/helpers/dynamodb.seed_exam_questions
+  timeout: 900
+  events:
+    - httpApi:
+        path: /v1/helpers/seed/exam-questions
+        method: get

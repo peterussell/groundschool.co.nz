@@ -1,0 +1,152 @@
+[
+  {
+    "id": "cpl-6",
+    "licenseType": "CPL",
+    "aspeqExamName": "CPL Principles of Flight & Aircraft Performance",
+    "slug": "principals-of-flight",
+    "aspeqAllowedMaterials": [],
+    "aspeqNumberOfQuestions": "45",
+    "name": "Principles of Flight",
+    "aspeqDurationMinutes": "120"
+  },
+  {
+    "id": "cpl-5",
+    "licenseType": "CPL",
+    "aspeqExamName": "CPL Flight Navigation General",
+    "slug": "nav-general",
+    "aspeqAllowedMaterials": [],
+    "aspeqNumberOfQuestions": "45",
+    "name": "Navigation",
+    "aspeqDurationMinutes": "180"
+  },
+  {
+    "id": "cpl-1",
+    "licenseType": "CPL",
+    "aspeqExamName": "CPL Air Law (Aeroplane)",
+    "slug": "air-law",
+    "aspeqAllowedMaterials": [],
+    "aspeqNumberOfQuestions": "60",
+    "name": "Air Law",
+    "aspeqDurationMinutes": "120"
+  },
+  {
+    "id": "ir-3",
+    "licenseType": "IR",
+    "aspeqExamName": "IR Instruments and Navigation Aids",
+    "slug": "instruments-navaids",
+    "aspeqAllowedMaterials": [],
+    "aspeqNumberOfQuestions": "30",
+    "name": "Instruments & Nav Aids",
+    "aspeqDurationMinutes": "90"
+  },
+  {
+    "id": "ir-2",
+    "licenseType": "IR",
+    "aspeqExamName": "IR Flight Navigation (IFR)",
+    "slug": "nav",
+    "aspeqAllowedMaterials": [],
+    "aspeqNumberOfQuestions": "60",
+    "name": "Navigation",
+    "aspeqDurationMinutes": "180"
+  },
+  {
+    "id": "ppl-6",
+    "licenseType": "PPL",
+    "slug": "nav-flight-planning",
+    "aspeqAllowedMaterials": [],
+    "aspeqNumberOfQuestions": "25",
+    "aspeqDurationMinutes": "70",
+    "name": "Nav & Flight Planning",
+    "aspeqExamName": "PPL Air Navigation and Flight Planning"
+  },
+  {
+    "id": "ppl-3",
+    "licenseType": "PPL",
+    "aspeqExamName": "FRTO Flight Radio",
+    "slug": "flight-radio",
+    "aspeqAllowedMaterials": [],
+    "aspeqNumberOfQuestions": "25",
+    "name": "Flight Radio",
+    "aspeqDurationMinutes": "40"
+  },
+  {
+    "id": "cpl-3",
+    "licenseType": "CPL",
+    "aspeqExamName": "CPL Human Factors",
+    "slug": "human-factors",
+    "aspeqAllowedMaterials": [],
+    "aspeqNumberOfQuestions": "40",
+    "name": "Human Factors",
+    "aspeqDurationMinutes": "90"
+  },
+  {
+    "id": "ir-1",
+    "licenseType": "IR",
+    "aspeqExamName": "IR Air Law",
+    "slug": "air-law",
+    "aspeqAllowedMaterials": [],
+    "aspeqNumberOfQuestions": "60",
+    "name": "Air Law",
+    "aspeqDurationMinutes": "120"
+  },
+  {
+    "id": "ppl-4",
+    "licenseType": "PPL",
+    "aspeqExamName": "PPL Human Factors",
+    "slug": "human-factors",
+    "aspeqAllowedMaterials": [],
+    "aspeqNumberOfQuestions": "35",
+    "name": "Human Factors",
+    "aspeqDurationMinutes": "40"
+  },
+  {
+    "id": "ppl-1",
+    "licenseType": "PPL",
+    "aspeqExamName": "PPL Air Law (Aeroplane)",
+    "slug": "air-law",
+    "aspeqAllowedMaterials": [],
+    "aspeqNumberOfQuestions": "35",
+    "name": "Air Law",
+    "aspeqDurationMinutes": "70"
+  },
+  {
+    "id": "cpl-4",
+    "licenseType": "CPL",
+    "aspeqExamName": "CPL Meteorology",
+    "slug": "meteorology",
+    "aspeqAllowedMaterials": [],
+    "aspeqNumberOfQuestions": "50",
+    "name": "Meteorology",
+    "aspeqDurationMinutes": "120"
+  },
+  {
+    "id": "cpl-2",
+    "licenseType": "CPL",
+    "aspeqExamName": "CPL General Aircraft Technical Knowledge (Aeroplane)",
+    "slug": "air-tech",
+    "aspeqAllowedMaterials": [],
+    "aspeqNumberOfQuestions": "45",
+    "name": "Air Tech",
+    "aspeqDurationMinutes": "120"
+  },
+  {
+    "id": "ppl-2",
+    "licenseType": "PPL",
+    "aspeqExamName": "PPL Aircraft Technical Knowledge (Aeroplane)",
+    "slug": "air-tech",
+    "aspeqAllowedMaterials": [],
+    "aspeqNumberOfQuestions": "45",
+    "name": "Air Tech",
+    "aspeqDurationMinutes": "90"
+  },
+  {
+    "id": "ppl-5",
+    "licenseType": "PPL",
+    "aspeqExamName": "PPL Meteorology",
+    "slug": "meteorology",
+    "aspeqAllowedMaterials": [],
+    "aspeqNumberOfQuestions": "35",
+    "name": "Meteorology",
+    "aspeqDurationMinutes": "70"
+  }
+]

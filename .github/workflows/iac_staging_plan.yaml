@@ -30,7 +30,11 @@ jobs:
 
       - name: Terraform init
         id: init
-        run: terraform -chdir=${GITHUB_WORKSPACE}/iac init
+        run: >
+          terraform -chdir=${GITHUB_WORKSPACE}/iac init -input=false
+          -backend-config='bucket=groundschool.co.nz-tf-state-staging'
+          -backend-config='key=staging.tfstate'
+          -backend-config='role_arn=${{ secrets.AWS_STAGING_DEPLOY_ROLE_ARN }}'
 
       - name: Terraform validate
         id: validate
@@ -41,6 +45,7 @@ jobs:
         run: >
           terraform -chdir=${GITHUB_WORKSPACE}/iac plan -no-color -input=false
           -var='environment=staging' -var='deployer_role_arn=${{ secrets.AWS_STAGING_DEPLOY_ROLE_ARN }}'
+          -var='site_name=stage.groundschool.co.nz'
 
       - name: Update pull request
         uses: actions/github-script@v6

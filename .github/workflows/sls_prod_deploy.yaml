@@ -1,0 +1,33 @@
+name: Prod - deploy web API (SLS)
+
+on:
+  push:
+    branches:
+      - "main"
+    paths:
+      - "sls/services/web-api/**"
+
+concurrency:
+  group: web_api_sls_deploy_prod
+
+jobs:
+  deploy:
+    name: Web API (SLS) deploy (prod)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+
+      - name: Set up node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      - name: Serverless deploy
+        uses: serverless/github-action@v3
+        with:
+          args: -c "cd ./sls/services/web-api && serverless deploy --verbose"
+          entrypoint: /bin/sh
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.SLS_PROD_DEPLOYER_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.SLS_PROD_DEPLOYER_SECRET_ACCESS_KEY }}

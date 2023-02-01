@@ -1,18 +1,18 @@
-resource "aws_iam_user" "github_deployer" {
-  name = "github_deployer"
+resource "aws_iam_user" "sls_deployer" {
+  name = "sls_deployer"
 
   tags = {
     Environment = "${var.environment}"
   }
 }
 
-resource "aws_iam_access_key" "github_deployer_access_key" {
-  user = "${aws_iam_user.github_deployer.name}"
+resource "aws_iam_access_key" "sls_deployer_access_key" {
+  user = "${aws_iam_user.sls_deployer.name}"
 }
 
-resource "aws_iam_user_policy" "github_deployer_policy" {
-  name = "github_deployer_policy"
-  user = "${aws_iam_user.github_deployer.name}"
+resource "aws_iam_user_policy" "sls_deployer_policy" {
+  name = "sls_deployer_policy"
+  user = "${aws_iam_user.sls_deployer.name}"
 
   policy = <<EOF
 {
@@ -20,8 +20,14 @@ resource "aws_iam_user_policy" "github_deployer_policy" {
   "Statement": [
     {
       "Action": [
-        "s3:PutObject",
-        "s3:PutObjectAcl"
+        "lambda:*",
+        "apigateway:*",
+        "execute-api:*",
+        "cloudFormation:*",
+        "s3:*",
+        "iam:*",
+        "logs:*",
+        "dynamodb:*"
       ],
       "Effect": "Allow",
       "Resource": "*"
@@ -38,7 +44,7 @@ EOF
 
 # Once terraform apply has been run, the secret value can be accessed with
 # 'terraform output -json'.
-output "github_deployer_secret" {
-  value = "${aws_iam_access_key.github_deployer_access_key.secret}"
+output "sls_deployer_secret" {
+  value = "${aws_iam_access_key.sls_deployer_access_key.secret}"
   sensitive = true
 }

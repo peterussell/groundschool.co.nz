@@ -1,14 +1,10 @@
-import { Button, Container, Grid, Typography } from "@material-ui/core";
+import { Container, Grid, Typography } from "@material-ui/core";
 
 import { ExamSelector } from "features/exams/components";
 import useStyles from "../pagesStyle";
 
 export const HomePage = () => {
   const classes = useStyles();
-
-  const handleDonate = () => {
-    console.log("donate clicked");
-  };
 
   return (
     <>
@@ -28,10 +24,6 @@ export const HomePage = () => {
               Online flight training resources to prepare for the
               New Zealand CAA aviation theory exams.
             </Typography>
-
-            <Button variant="contained" color="primary" onClick={handleDonate}>
-              Donate
-            </Button>
           </Grid>
         </Grid>
       </Container>

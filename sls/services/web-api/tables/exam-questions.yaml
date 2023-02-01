@@ -1,0 +1,27 @@
+Resources:
+  examQuestionsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: exam-questions
+      AttributeDefinitions:
+        - AttributeName: id
+          AttributeType: S
+        - AttributeName: examId
+          AttributeType: S
+      KeySchema:
+        - AttributeName: id
+          KeyType: HASH
+      BillingMode: PROVISIONED
+      ProvisionedThroughput:
+        ReadCapacityUnits: 1
+        WriteCapacityUnits: 1
+      GlobalSecondaryIndexes:
+        - IndexName: examIdIndex
+          KeySchema:
+            - AttributeName: examId
+              KeyType: HASH
+          Projection:
+            ProjectionType: ALL
+          ProvisionedThroughput:
+            ReadCapacityUnits: 1
+            WriteCapacityUnits: 1

@@ -1,0 +1,13 @@
+getQuestions:
+  handler: functions/exams/exam-questions.get
+  events:
+    - httpApi:
+        path: /v1/exams/{examId}/questions
+        method: get
+
+getExams:
+  handler: functions/exams/exams.get
+  events:
+    - httpApi:
+        path: /v1/exams
+        method: get
