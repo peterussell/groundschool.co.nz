@@ -27,6 +27,8 @@ provider:
       Resource:
         - arn:aws:s3:::gsnz-staging-data-migration
         - arn:aws:s3:::gsnz-staging-data-migration/*
+        - arn:aws:s3:::gsnz-prod-data-migration
+        - arn:aws:s3:::gsnz-prod-data-migration/*
   layers:
     - !Ref CommonLambdaLayer
 
