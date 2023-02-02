@@ -4,3 +4,4 @@ postQuestions:
     - httpApi:
         path: /v1/questions
         method: post
+        cors: true
