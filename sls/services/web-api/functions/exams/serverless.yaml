@@ -4,6 +4,7 @@ getQuestions:
     - httpApi:
         path: /v1/exams/{examId}/questions
         method: get
+        cors: true
 
 getExams:
   handler: functions/exams/exams.get
@@ -11,3 +12,4 @@ getExams:
     - httpApi:
         path: /v1/exams
         method: get
+        cors: true
