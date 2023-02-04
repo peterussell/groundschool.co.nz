@@ -19,7 +19,7 @@ export const ContactPage = () => {
           <Grid item xs={10}>
             <Typography variant="body1">
               The quickest way to get in touch for support, suggestions, or feature requests
-              is to message us on <a href="https://www.facebook.com/groundschoolnz" target="_blank">Facebook</a>
+              is to send us a <a href="https://www.facebook.com/groundschoolnz" target="_blank">Facebook message</a>
               or email <a href="mailto:info@groundschool.co.nz">info@groundschool.co.nz</a>.
               We'll get back to you as quickly as possible.
             </Typography>
