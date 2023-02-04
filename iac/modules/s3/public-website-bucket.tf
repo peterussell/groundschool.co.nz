@@ -3,7 +3,14 @@ output "website_bucket_regional_domain_name" {
 }
 
 resource "aws_s3_bucket" "gs_web" {
-  bucket = "${var.environment}.groundschool.co.nz"
+  # Ugh, gross. So we deployed 'stage.groundschool.co.nz' as the staging web bucket
+  # using ${var.site_name}, but then realized we couldn't use this for prod because
+  # we want the bucket to have the env prefix (prod.groundschool.co.nz) but the
+  # site_name variable doesn't have this for prod.
+
+  # In order to keep staging='stage.groundschool.co.nz' and prod='prod.groundschool.co.nz'
+  # we have to use the environment prefix for prod, but the site name for stage.
+  bucket = var.environment == "prod" ? "${var.environment}.groundschool.co.nz" : "${var.site_name}"
 
   tags = {
     Environment = "${var.environment}"
