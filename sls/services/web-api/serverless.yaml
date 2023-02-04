@@ -50,3 +50,4 @@ functions:
 resources:
   - ${file(./tables/exams.yaml)}
   - ${file(./tables/exam-questions.yaml)}
+  
