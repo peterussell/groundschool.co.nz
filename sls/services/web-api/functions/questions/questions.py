@@ -39,7 +39,7 @@ def post(event, context):
 
         return response_utils.make_200({
             'success': True,
-            'message': 'Question successfully added, ID: ' + question_id
+            'message': 'Question successfully added (ID: ' + question_id + ')'
         })
 
     except Exception as e:
