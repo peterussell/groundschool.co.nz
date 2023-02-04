@@ -30,6 +30,9 @@ provider:
   layers:
     - !Ref CommonLambdaLayer
 
+  httpApi:
+    cors: true
+
 layers:
   common:
     path: common
