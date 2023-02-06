@@ -33,18 +33,18 @@ export const ExamSelectorCard = ({ exam, onClick }: Props) => {
           </Typography>
 
           <Box mt={2} mb={1}>
-            <Grid container spacing={1} >
+            <Grid container spacing={1}>
               <Grid item xs={12}>
-                <FormatListNumbered className={classes.icon} />
+                <School className={classes.icon} />
                 <Typography variant="body2" color="secondary">
-                  {exam.availableQuestions} questions available
+                  {exam.aspeqExamInfo.numberOfQuestions} questions / {exam.aspeqExamInfo.durationMinutes} min
                 </Typography>
               </Grid>
 
               <Grid item xs={12}>
-                <School className={classes.icon} />
+                <FormatListNumbered className={classes.icon} />
                 <Typography variant="body2" color="secondary">
-                  Exam: {exam.aspeqExamInfo.numberOfQuestions} questions / {exam.aspeqExamInfo.durationMinutes} min
+                  Question bank: {exam.availableQuestions}
                 </Typography>
               </Grid>
             </Grid>
