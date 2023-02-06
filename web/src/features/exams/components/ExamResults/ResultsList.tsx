@@ -104,14 +104,6 @@ export const ResultsList = ({ exam, questions }: Props) => {
                           <Typography variant="body1" className={classes.bold}>{q.text}</Typography>
                         </Grid>
                         <Grid item xs={2}>
-                          <Typography variant="body1">Correct answer:</Typography>
-                        </Grid>
-                        <Grid item xs={10}>
-                          <Typography variant="body1">
-                            {q.answers.find(a => a.isCorrect)?.text || "-"}
-                          </Typography>
-                        </Grid>
-                        <Grid item xs={2}>
                           <Typography variant="body1">Syllabus Ref:</Typography>
                         </Grid>
                         <Grid item xs={10}>

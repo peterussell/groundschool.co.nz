@@ -17,20 +17,22 @@ interface Props {
 };
 
 export const ExamConfigurator = ({ exam, onCancel, onStartExam }: Props) => {
+  const isPremium = false; // TMP - replace when premium accounts are supported
+
   const classes = useStyles();
 
   const canSimulateAspeqExam = exam.availableQuestions >= (exam.aspeqExamInfo?.numberOfQuestions || 0);
 
   const [simulateAspeq, setSimulateAspeq] = useState(canSimulateAspeqExam);
-  const [numQuestions, setNumQuestions] = useState(exam.availableQuestions);
-  const [isTimed, setIsTimed] = useState(true);
+  const [numQuestions, setNumQuestions] = useState(0);
   const [duration, setDuration] = useState(exam.aspeqExamInfo.durationMinutes);
   const [numQuestionsError, setNumQuestionsError] = useState<string | null>(null);
 
   useEffect(() => {
-    // Update the duration based on the number of available questions
-    updateDuration(numQuestions);
-  }, [exam.aspeqExamInfo]);
+    const availableQuestions = getMaxAvailableQuestions();
+    setNumQuestions(availableQuestions);
+    updateDuration(availableQuestions);
+  }, []);
 
   const handleSimulateExamChange = (e: any) => {
     const simulate = e.target.checked;
@@ -39,8 +41,15 @@ export const ExamConfigurator = ({ exam, onCancel, onStartExam }: Props) => {
     if (simulate) {
       setNumQuestions(exam.aspeqExamInfo.numberOfQuestions);
       setDuration(exam.aspeqExamInfo.durationMinutes);
-      setIsTimed(true);
     }
+  };
+
+  const getMaxAvailableQuestions = () => {
+    // Premium accounts can take exams with the full question bank,
+    // Standard account exams are restricted to the Aspeq exam size
+    return isPremium ?
+      exam.availableQuestions :
+      Math.min(exam.availableQuestions, exam.aspeqExamInfo.numberOfQuestions);
   };
 
   const handleNumQuestionsChange = (e: any) => {
@@ -54,8 +63,8 @@ export const ExamConfigurator = ({ exam, onCancel, onStartExam }: Props) => {
     updateDuration(numVal);
 
     // Set errors if applicable
-    if (numVal < 1 || numVal > exam.availableQuestions) {
-      setNumQuestionsError(`1-${exam.availableQuestions}`);
+    if (numVal < 1 || numVal > getMaxAvailableQuestions()) {
+      setNumQuestionsError(`1-${getMaxAvailableQuestions()}`);
     }
   };
 
@@ -66,15 +75,10 @@ export const ExamConfigurator = ({ exam, onCancel, onStartExam }: Props) => {
     ));
   };
 
-  const handleIsTimedChange = (e: any) => {
-    setIsTimed(e.target.checked);
-  };
-
   const handleStartExam = () => {
     onStartExam({
       exam: exam,
       duration: duration,
-      isTimed: isTimed,
       numberOfQuestions: numQuestions
     });
   };
@@ -82,26 +86,37 @@ export const ExamConfigurator = ({ exam, onCancel, onStartExam }: Props) => {
   return (
     <>
       <Grid container spacing={2} className={classes.bodyContainer}>
-        <Grid item xs={12} md={4}>
-          <Typography variant="body1">Simulate real exam</Typography>
-        </Grid>
-        <Grid item xs={12} md={8}>
-          <Switch
-            checked={simulateAspeq}
-            onChange={handleSimulateExamChange}
-            color="primary"
-            className={classes.switch}
-            disabled={!canSimulateAspeqExam}
-          />
-          {!canSimulateAspeqExam && (
-            <Typography variant="body2" className={classes.hintText}>
-              Not enough questions to simulate a real exam
-            </Typography>
-          )}
-        </Grid>
+        {isPremium && (
+          <>
+            <Grid item xs={12} md={4}>
+              <Typography variant="body1">Simulate real exam</Typography>
+            </Grid>
+            <Grid item xs={12} md={8}>
+              <Switch
+                checked={simulateAspeq}
+                onChange={handleSimulateExamChange}
+                color="primary"
+                className={classes.switch}
+                disabled={!canSimulateAspeqExam}
+              />
+              {!canSimulateAspeqExam && (
+                <Typography variant="body2" className={classes.hintText}>
+                  Not enough questions to simulate a real exam
+                </Typography>
+              )}
+            </Grid>
+          </>
+        )}
 
         <Grid item xs={12} md={4}>
-          <Typography variant="body1">Number of questions</Typography>
+          <Typography variant="body1">
+            Questions&nbsp;
+            {(!isPremium || !simulateAspeq) && (
+              <>
+                (1-{getMaxAvailableQuestions()})
+              </>
+            )}
+          </Typography>
         </Grid>
         <Grid item xs={12} md={8}>
           <TextField
@@ -111,42 +126,44 @@ export const ExamConfigurator = ({ exam, onCancel, onStartExam }: Props) => {
             onChange={handleNumQuestionsChange}
             error={!!numQuestionsError}
             helperText={numQuestionsError}
-            disabled={simulateAspeq}
+            disabled={isPremium && simulateAspeq}
             margin="dense"
           />
         </Grid>
 
         <Grid item xs={12} md={4}>
-          <Typography variant="body1">Timed</Typography>
+          <Typography variant="body1">Duration</Typography>
         </Grid>
         <Grid item xs={12} md={8}>
-          <Switch
-            checked={isTimed}
-            onChange={handleIsTimedChange}
-            color="primary"
-            className={classes.switch}
-            disabled={simulateAspeq}
-          />
-          {isTimed && (
-            <Typography variant="body2" className={classes.hintText}>
-              {numQuestions} questions, {duration} minutes<br />
-            </Typography>
-          )}
+          <Typography variant="body1">{duration} minutes</Typography>
         </Grid>
 
-        <Grid item xs={12} md={4}>{/* Spacer */}
-        </Grid>
-        <Grid item xs={12} md={8}>
-          <Typography
-            variant="body2"
-            className={classes.hintText}
-            style={{ marginLeft: 0, color: "#777" }}
-          >
-            (Aspeq exam:&nbsp;
-            {exam.aspeqExamInfo.numberOfQuestions} questions,&nbsp;
-            {exam.aspeqExamInfo.durationMinutes} minutes)
+        <Grid item xs={12} md={4}>
+          <Typography variant="body1">
+            Aspeq exam{!canSimulateAspeqExam && "*"}
           </Typography>
         </Grid>
+        <Grid item xs={12} md={8}>
+          <Typography variant="body1">
+            {exam.aspeqExamInfo.numberOfQuestions} questions,&nbsp;
+            {exam.aspeqExamInfo.durationMinutes} minutes
+          </Typography>
+        </Grid>
+
+        {!canSimulateAspeqExam && (
+          <>
+            <Grid item xs={12} md={4}>
+              {/* spacer */}
+            </Grid>
+            <Grid item xs={12} md={8}>
+              <Typography variant="body2">
+                <i>*The question bank for this exam is currently smaller than the number
+                of questions in the Aspeq exam. We're constantly adding questions,
+                so please check back for updates.</i>
+              </Typography>
+            </Grid>
+          </>
+        )}
 
         <Grid item xs={12} md={12}>
           <Grid container spacing={2} justify="flex-end" className={classes.actionsContainer}>
