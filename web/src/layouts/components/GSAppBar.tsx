@@ -1,5 +1,6 @@
 import {
   AppBar,
+  Button,
   Container,
   IconButton,
   List,
@@ -10,11 +11,28 @@ import {
 } from "@material-ui/core";
 import { AccountCircle } from "@material-ui/icons";
 import { Link } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
 
 import useStyles from "./gsAppBarStyles";
 
 export const GSAppBar = () => {
   const classes = useStyles();
+
+  const {
+    user,
+    isAuthenticated,
+    isLoading,
+    loginWithRedirect,
+    logout
+  } = useAuth0();
+
+  const handleLogIn = (): void => {
+    loginWithRedirect();
+  };
+
+  const handleLogOut = (): void => {
+    logout({ logoutParams: { returnTo: window.location.origin } })
+  };
 
   return (
     <AppBar position="static" elevation={0}>
@@ -48,10 +66,26 @@ export const GSAppBar = () => {
             </List>
           </div>
 
-          <IconButton>
-            <AccountCircle className={classes.accountIcon} />
-          </IconButton>
-
+          {/* TODO: move this to a separate component? */}
+          {isLoading ? (
+            <Typography variant="body1" color="textSecondary">Loading...</Typography>
+          ) : (
+            isAuthenticated ? (
+              <>
+                <Typography variant="body2" color="textSecondary">
+                  Hi, {user?.name ?? user?.email}
+                </Typography>
+                <IconButton>
+                  {/* TODO: clicking/tapping this should open a pop-up menu */}
+                  <AccountCircle className={classes.accountIcon} onClick={handleLogOut} />
+                </IconButton>
+              </>
+            ) : (
+              <Button variant="outlined" color="secondary" onClick={handleLogIn}>
+                Log in
+              </Button>
+            )
+          )}
         </Toolbar>
       </Container>
     </AppBar>

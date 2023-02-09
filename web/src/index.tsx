@@ -1,13 +1,24 @@
 import ReactDOM from 'react-dom';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
+import { Auth0Provider } from "@auth0/auth0-react";
 
 import GA4React from "ga-4-react";
 
 ReactDOM.render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>,
+  // TODO: these need to come from local .env file, or ENV vars during build
+  // and switch between dev/staging/prod
+  <Auth0Provider
+    domain="dev-dd6ko7nw.us.auth0.com"
+    clientId="12HCOp9x8Nks1gYxPoY3EnSk7CVGn89h"
+    authorizationParams={{
+      redirect_uri: window.location.origin
+    }}
+    >
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </Auth0Provider>,
   document.getElementById('root')
 );
 
