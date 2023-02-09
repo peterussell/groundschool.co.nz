@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     color: theme.palette.success.main
   },
   unknownIcon: {
-    color: theme.palette.secondary.light
+    color: theme.palette.secondary.dark
   },
   backIcon: {
     float: "left",
