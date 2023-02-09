@@ -48,7 +48,7 @@ export const QuestionViewer = ({ question }: Props) => {
                 <FormControlLabel
                   value={`${i}`}
                   control={
-                    <Radio classes={{ root: classes.radio }} />
+                    <Radio color="primary" classes={{ root: classes.radio }} />
                   }
                   label={a.text}
                 />
