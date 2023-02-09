@@ -28,7 +28,7 @@ const useStyles = makeStyles((theme: Theme) => ({
     paddingTop: theme.spacing(1)
   },
   radio: {
-    color: "#ccc !important"
+    color: `${theme.palette.primary.main}`
   },
   progressOk: {
     backgroundColor: `${theme.palette.success.dark} !important`

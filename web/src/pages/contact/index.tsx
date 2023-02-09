@@ -18,10 +18,10 @@ export const ContactPage = () => {
         <Grid container>
           <Grid item xs={10}>
             <Typography variant="body1">
-              The quickest way to get in touch for support, suggestions, or feature requests
-              is to send us a <a href="https://www.facebook.com/groundschoolnz" target="_blank">Facebook message</a>
-              or email <a href="mailto:info@groundschool.co.nz">info@groundschool.co.nz</a>.
-              We'll get back to you as quickly as possible.
+              The quickest way to get in touch for support, suggestions, and feature requests
+              is to send us a message on <a href="https://www.facebook.com/groundschoolnz" target="_blank">Facebook</a> or
+              email <a href="mailto:info@groundschool.co.nz">info@groundschool.co.nz</a>.
+              We'll respond to your query as soon as possible.
             </Typography>
           </Grid>
         </Grid>
@@ -33,10 +33,8 @@ export const ContactPage = () => {
         <Grid container>
           <Grid item xs={10}>
             <Typography variant="body1">
-              Join GroundSchool NZ on <a href="https://www.facebook.com/groundschoolnz" target="_blank">Facebook</a>&nbsp;
-              and <a href="https://www.instagram.com/groundschoolnz" target="_blank">Instagram</a> for
-              website updates, relevant aviation content from NZ and abroad, and to connect with other
-              Kiwi pilots.
+              Join GroundSchool NZ on Facebook and Instagram for website updates, relevant aviation content from NZ
+              and abroad, and to connect with other kiwi pilots.
             </Typography>
           </Grid>
         </Grid>
