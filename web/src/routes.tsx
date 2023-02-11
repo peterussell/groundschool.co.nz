@@ -1,11 +1,11 @@
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route } from "react-router-dom";
+import { ProtectedRoute } from "auth/protected-route";
 import {
   ArticlesPage,
   ContactPage,
   ExamsPage,
   HomePage,
   NotFoundPage,
-  ResourcesPage,
   ContributePage
 } from "pages";
 
@@ -15,7 +15,10 @@ const routes = (
     <Route path="/exams" component={ExamsPage} />
     <Route path="/articles" component={ArticlesPage} />
     {/* <Route path="/resources" component={ResourcesPage} /> */}
-    <Route path="/contribute" component={ContributePage} />
+    <ProtectedRoute
+      path="/contribute"
+      component={ContributePage}
+    />
     <Route path="/contact" component={ContactPage} />
     <Route component={NotFoundPage} />
   </Switch>

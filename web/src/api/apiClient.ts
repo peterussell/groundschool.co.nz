@@ -57,9 +57,7 @@ export abstract class ApiClient {
 
   private addBaseUrlAndCommonHeaders = async (params: AxiosRequestConfig) => ({
     ...params,
-    baseURL: (process.env.NODE_ENV === "development")
-      ? "https://cuix96cwv5.execute-api.ap-southeast-2.amazonaws.com/v1"
-      : `${process.env.REACT_APP_GS_API_ENDPOINT}/v1`,
+    baseURL: `${process.env.REACT_APP_GS_API_ENDPOINT ?? ""}/v1`,
     headers: {
       ...params.headers,
     },
@@ -68,4 +66,4 @@ export abstract class ApiClient {
   private handleUnauthorizedErrorResponse = (error: AxiosError) => {
     return Promise.reject(error);
   };
-}
+};

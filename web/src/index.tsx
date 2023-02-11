@@ -6,19 +6,17 @@ import { Auth0Provider } from "@auth0/auth0-react";
 import GA4React from "ga-4-react";
 
 ReactDOM.render(
-  // TODO: these need to come from local .env file, or ENV vars during build
-  // and switch between dev/staging/prod
-  <Auth0Provider
-    domain="dev-dd6ko7nw.us.auth0.com"
-    clientId="12HCOp9x8Nks1gYxPoY3EnSk7CVGn89h"
-    authorizationParams={{
-      redirect_uri: window.location.origin
-    }}
-    >
     <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </Auth0Provider>,
+      <Auth0Provider
+        domain={process.env.REACT_APP_AUTH0_DOMAIN ?? ""}
+        clientId={process.env.REACT_APP_AUTH0_CLIENT_ID ?? ""}
+        authorizationParams={{
+          redirect_uri: window.location.origin
+        }}
+        >
+        <App />
+      </Auth0Provider>
+    </BrowserRouter>,
   document.getElementById('root')
 );
 
