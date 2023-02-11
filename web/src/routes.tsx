@@ -15,10 +15,7 @@ const routes = (
     <Route path="/exams" component={ExamsPage} />
     <Route path="/articles" component={ArticlesPage} />
     {/* <Route path="/resources" component={ResourcesPage} /> */}
-    <ProtectedRoute
-      path="/contribute"
-      component={ContributePage}
-    />
+    <ProtectedRoute path="/contribute" component={ContributePage} />
     <Route path="/contact" component={ContactPage} />
     <Route component={NotFoundPage} />
   </Switch>
