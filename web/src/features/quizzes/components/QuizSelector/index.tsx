@@ -28,7 +28,8 @@ export const QuizSelector = () => {
     const config: ExamSimulatorConfig = {
       exam: exam,
       duration: exam.aspeqExamInfo.durationMinutes,
-      numberOfQuestions: exam.aspeqExamInfo.numberOfQuestions
+      numberOfQuestions: exam.aspeqExamInfo.numberOfQuestions,
+      isQuiz: true
     }
 
     setExamConfig(config);

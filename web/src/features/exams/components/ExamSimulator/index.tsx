@@ -31,8 +31,8 @@ export const ExamSimulator = () => {
     examConfig && loadExamQuestions(examConfig);
   }, [examConfig]);
 
-  const getTitle = (licenseType: LicenseType, examName: string): string =>
-    licenseType.toLowerCase() === "quiz" ?
+  const getTitle = (isQuiz: boolean, licenseType: LicenseType, examName: string): string =>
+    isQuiz ?
        `Quiz - ${examName}` :
        `${capitalize(licenseType)} ${examName}`;
 
@@ -69,7 +69,7 @@ export const ExamSimulator = () => {
     ) : (
       <>
         <Typography variant="h4">
-          {getTitle(exam.licenseType, exam.name)}
+          {getTitle(examConfig.isQuiz ?? false, exam.licenseType, exam.name)}
         </Typography>
 
         <Box mt={3}>
@@ -90,6 +90,7 @@ export const ExamSimulator = () => {
           <NavigationPanel
             canGoPrevious={currentQuestionIndex > 0}
             canGoNext={currentQuestionIndex < examQuestions.length-1}
+            isQuiz={examConfig.isQuiz ?? false}
             onGoPrevious={handleGoPrevious}
             onGoNext={handleGoNext}
             onFinish={handleFinish}
@@ -114,7 +115,7 @@ export const ExamSimulator = () => {
           onCancel={() => { setShowFinishDialog(false); }}
         >
           <Typography variant="body1">
-            Are you sure you want to finish the exam?
+            Are you sure you want to finish the {examConfig.isQuiz ? "quiz" : "exam"}?
           </Typography>
         </GSDialog>
       </>
