@@ -209,7 +209,7 @@ def _get_exams():
         "id": "q-1",
         "name": "Light Gun Signals",
         "slug": "light-gun-signals",
-        "licenseType": "quiz",
+        "licenseType": "Quiz",
         "availableQuestions": 12,
         "aspeqName": "",
         "aspeqExamInfo": {
