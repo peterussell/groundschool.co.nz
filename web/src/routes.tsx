@@ -3,6 +3,7 @@ import {
   ArticlesPage,
   ContactPage,
   ExamsPage,
+  QuizzesPage,
   HomePage,
   NotFoundPage,
   ResourcesPage,
@@ -13,6 +14,7 @@ const routes = (
   <Switch>
     <Route path="/" component={HomePage} exact />
     <Route path="/exams" component={ExamsPage} />
+    <Route path="/quizzes" component={QuizzesPage} />
     <Route path="/articles" component={ArticlesPage} />
     {/* <Route path="/resources" component={ResourcesPage} /> */}
     <Route path="/contribute" component={ContributePage} />
