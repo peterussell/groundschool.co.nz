@@ -14,7 +14,7 @@ export const QuizzesPage = () => {
   return (
     <>
       <Helmet>
-        <title>Exams | GroundSchool NZ</title>
+        <title>Quizzes | GroundSchool NZ</title>
       </Helmet>
       <Container maxWidth="md" className={classes.bodyContainer}>
         <Switch>

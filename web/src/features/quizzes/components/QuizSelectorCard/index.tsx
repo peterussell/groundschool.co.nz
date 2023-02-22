@@ -7,10 +7,7 @@ import {
   Grid,
   Typography
 } from "@material-ui/core";
-import {
-  FormatListNumbered,
-  School
-} from "@material-ui/icons";
+import { School } from "@material-ui/icons";
 
 import { Exam } from "models";
 import { useExamUtils } from "utils";
@@ -43,14 +40,8 @@ export const QuizSelectorCard = ({ exam, onClick }: Props) => {
                   {exam.aspeqExamInfo.numberOfQuestions} questions / {exam.aspeqExamInfo.durationMinutes} min
                 </Typography>
               </Grid>
-
-              <Grid item xs={12}>
-                <FormatListNumbered className={classes.icon} />
-                <Typography variant="body2" color="secondary">
-                  Question bank: {exam.availableQuestions}
-                </Typography>
-              </Grid>
             </Grid>
+
           </Box>
         </CardContent>
       </CardActionArea>
