@@ -207,7 +207,7 @@ def _get_exams():
       },
       {
         "id": "q-1",
-        "name": "Light Gun Signals",
+        "name": "Light gun signals",
         "slug": "light-gun-signals",
         "licenseType": "Quiz",
         "availableQuestions": 12,
@@ -215,6 +215,32 @@ def _get_exams():
         "aspeqExamInfo": {
             "durationMinutes": 20,
             "numberOfQuestions": 12,
+            "allowedMaterials": []
+        }
+      },
+      {
+        "id": "q-2",
+        "name": "Transponder codes",
+        "slug": "transponder-codes",
+        "licenseType": "Quiz",
+        "availableQuestions": 16,
+        "aspeqName": "",
+        "aspeqExamInfo": {
+            "durationMinutes": 25,
+            "numberOfQuestions": 16,
+            "allowedMaterials": []
+        }
+      },
+      {
+        "id": "q-3",
+        "name": "ELTs and PLBs",
+        "slug": "elts-and-plbs",
+        "licenseType": "Quiz",
+        "availableQuestions": 5,
+        "aspeqName": "",
+        "aspeqExamInfo": {
+            "durationMinutes": 10,
+            "numberOfQuestions": 5,
             "allowedMaterials": []
         }
       }
