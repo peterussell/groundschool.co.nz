@@ -33,7 +33,7 @@ export const QuizSelector = () => {
     }
 
     setExamConfig(config);
-    setRedirect("/exams/sit");
+    setRedirect("/quizzes/sit");
   };
 
   const getQuizCards = (exams?: Exam[]): ReactNode => {

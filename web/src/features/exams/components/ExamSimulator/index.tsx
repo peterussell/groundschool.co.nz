@@ -58,7 +58,8 @@ export const ExamSimulator = () => {
   }
 
   if (showResults) {
-    return <Redirect push to="/exams/results" />
+    const path = examConfig.isQuiz ? "quizzes" : "exams";
+    return <Redirect push to={`/${path}/results`} />
   }
 
   const { exam } = examConfig;
@@ -94,7 +95,6 @@ export const ExamSimulator = () => {
             onGoPrevious={handleGoPrevious}
             onGoNext={handleGoNext}
             onFinish={handleFinish}
-            isQuiz={examConfig.isQuiz ?? false}
           />
         </Box>
 
