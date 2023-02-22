@@ -1,4 +1,4 @@
-import { ExamQuestion } from "models";
+import { ExamQuestion, LicenseType } from "models";
 
 export const useExamUtils = () => {
 
@@ -40,12 +40,17 @@ export const useExamUtils = () => {
     return getScoreAsPercentage(questions) > requiredPercentage;
   };
 
+  const isStandardExam = (licenseType: LicenseType): boolean => {
+    return licenseType !== "Other" && licenseType !== "Quiz";
+  }
+
   return {
     getCorrectAnswers,
     getIncorrectAnswers,
     getUnansweredQuestions,
     getCorrectQuestionCount,
     getScoreAsPercentage,
-    isPass
+    isPass,
+    isStandardExam
   };
 };
