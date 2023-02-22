@@ -10,9 +10,9 @@ import { Exam, ExamQuestion } from "models";
 import { useExamUtils } from "utils";
 import useStyles from "./examResultsStyle";
 
-interface Props { exam: Exam, questions: ExamQuestion[] };
+interface Props { exam: Exam, questions: ExamQuestion[], isQuiz: boolean };
 
-export const ResultsList = ({ exam, questions }: Props) => {
+export const ResultsList = ({ exam, questions, isQuiz }: Props) => {
   const classes = useStyles();
 
   const {
@@ -173,8 +173,8 @@ export const ResultsList = ({ exam, questions }: Props) => {
             <ArrowBack className={classes.backIcon} />
           </Grid>
           <Grid item>
-            <Link to="/exams">
-              <Typography variant="h6">Take another exam</Typography>
+            <Link to={isQuiz ? "/quizzes" : "/exams"}>
+              <Typography variant="h6">Take another {isQuiz ? "quiz" : "exam"}</Typography>
             </Link>
           </Grid>
         </Grid>

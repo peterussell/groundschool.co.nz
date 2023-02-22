@@ -65,7 +65,7 @@ export const ExamSimulator = () => {
 
   return (
     !examQuestions?.length ? (
-      <Typography variant="h5">Loading exam...</Typography>
+      <Typography variant="h5">Loading...</Typography>
     ) : (
       <>
         <Typography variant="h4">

@@ -4,13 +4,14 @@ import { Done, KeyboardArrowLeft, KeyboardArrowRight } from "@material-ui/icons"
 interface Props {
   canGoNext: boolean,
   canGoPrevious: boolean,
+  isQuiz: boolean,
   onFinish: () => void,
   onGoNext: () => void,
   onGoPrevious: () => void
 };
 
 export const NavigationPanel = ({
-  canGoNext, canGoPrevious, onFinish, onGoNext, onGoPrevious
+  canGoNext, canGoPrevious, isQuiz, onFinish, onGoNext, onGoPrevious
 }: Props) => {
 
   return (
@@ -32,7 +33,7 @@ export const NavigationPanel = ({
 
       <Grid item>
         <Button variant="contained" color="primary" onClick={onFinish}>
-          <Done style={{ marginRight: 5 }} /> Finish exam
+          <Done style={{ marginRight: 5 }} /> Finish {isQuiz ? "quiz" : "exam"}
         </Button>
       </Grid>
     </Grid>

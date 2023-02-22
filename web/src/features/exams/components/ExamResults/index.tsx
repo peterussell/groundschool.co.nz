@@ -27,11 +27,11 @@ export const ExamResults = () => {
   return (
     <>
       <Typography variant="h4">
-        {`${capitalize(exam.licenseType)} ${exam.name}`} - Results
+        {`${capitalize(examConfig.isQuiz ? "" : exam.licenseType)} ${exam.name}`} - Results
       </Typography>
 
       <ResultsSummary exam={exam} questions={examQuestions} />
-      <ResultsList exam={exam} questions={examQuestions} />
+      <ResultsList exam={exam} questions={examQuestions} isQuiz={examConfig.isQuiz ?? false} />
     </>
   );
 };
