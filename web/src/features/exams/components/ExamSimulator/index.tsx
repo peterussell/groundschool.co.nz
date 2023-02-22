@@ -10,6 +10,7 @@ import { useExamState } from "features/exams/store";
 import { GSDialog } from "features/shared/components/GSDialog";
 import { useStringUtils } from "utils";
 import useStyles from "./examSimulatorStyle";
+import { LicenseType } from "models";
 
 export const ExamSimulator = () => {
   const classes = useStyles();
@@ -29,6 +30,11 @@ export const ExamSimulator = () => {
   useEffect(() => {
     examConfig && loadExamQuestions(examConfig);
   }, [examConfig]);
+
+  const getTitle = (licenseType: LicenseType, examName: string): string =>
+    licenseType.toLowerCase() === "quiz" ?
+       `Quiz - ${examName}` :
+       `${capitalize(licenseType)} ${examName}`;
 
   const handleGoPrevious = () => {
     setCurrentQuestionIndex(currentQuestionIndex-1);
@@ -63,7 +69,7 @@ export const ExamSimulator = () => {
     ) : (
       <>
         <Typography variant="h4">
-          {`${capitalize(exam.licenseType)} ${exam.name}`}
+          {getTitle(exam.licenseType, exam.name)}
         </Typography>
 
         <Box mt={3}>
