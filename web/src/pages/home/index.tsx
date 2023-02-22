@@ -1,5 +1,6 @@
 import { Container, Grid, Typography } from "@material-ui/core";
 
+import { QuizSelector } from "features/quizzes/components";
 import { ExamSelector } from "features/exams/components";
 import useStyles from "../pagesStyle";
 
@@ -26,6 +27,10 @@ export const HomePage = () => {
             </Typography>
           </Grid>
         </Grid>
+      </Container>
+
+      <Container maxWidth="md" className={classes.bodyContainer}>
+        <QuizSelector />
       </Container>
 
       <Container maxWidth="md" className={classes.bodyContainer}>

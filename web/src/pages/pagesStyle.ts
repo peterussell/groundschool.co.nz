@@ -33,7 +33,7 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
   bodyContainer: {
     marginTop: theme.spacing(4),
-    marginBottom: theme.spacing(4)
+    marginBottom: theme.spacing(6)
   }
 }));
 
