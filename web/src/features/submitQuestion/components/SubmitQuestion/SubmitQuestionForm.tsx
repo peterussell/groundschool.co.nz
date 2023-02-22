@@ -36,7 +36,8 @@ export const SubmitQuestionForm = () => {
   const licenseTypeOptions: AutocompleteOption<string>[] = [
     { label: "PPL", value: "PPL" },
     { label: "CPL", value: "CPL" },
-    { label: "IR", value: "IR" }
+    { label: "IR", value: "IR" },
+    { label: "Quiz", value: "quiz" }
   ];
 
   const getExamOptions = (licenseType: string): AutocompleteOption<string>[] => {

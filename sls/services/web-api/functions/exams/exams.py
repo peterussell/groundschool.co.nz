@@ -204,5 +204,18 @@ def _get_exams():
             "numberOfQuestions": 30,
             "allowedMaterials": []
         }
+      },
+      {
+        "id": "q-1",
+        "name": "Light Gun Signals",
+        "slug": "light-gun-signals",
+        "licenseType": "quiz",
+        "availableQuestions": 12,
+        "aspeqName": "",
+        "aspeqExamInfo": {
+            "durationMinutes": 20,
+            "numberOfQuestions": 12,
+            "allowedMaterials": []
+        }
       }
     ]
