@@ -93,6 +93,7 @@ export const ExamSimulator = () => {
             onGoPrevious={handleGoPrevious}
             onGoNext={handleGoNext}
             onFinish={handleFinish}
+            isQuiz={examConfig.isQuiz ?? false}
           />
         </Box>
 
