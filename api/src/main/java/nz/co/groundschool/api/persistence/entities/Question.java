@@ -17,4 +17,6 @@ public class Question {
     private String incorrectAnswer2;
     private String incorrectAnswer3;
     private String syllabusReference;
+
+    Question() { }
 }
