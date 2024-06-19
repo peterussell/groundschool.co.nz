@@ -1,25 +1,31 @@
 package nz.co.groundschool.api.persistence.entities;
 
-import jakarta.persistence.Convert;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import nz.co.groundschool.api.domain.enums.LicenseType;
 import nz.co.groundschool.api.persistence.converters.StringListConverter;
 
 import java.util.ArrayList;
+import java.util.Set;
 
 @Entity
 public class Exam {
-    private @Id
-    @GeneratedValue Long id;
+    @Id
+    @GeneratedValue
+    private Long id;
     private String name;
-    private String licenseType;
+    private LicenseType licenseType;
     private String slug;
     private int numAvailableQuestions;
     private String aspeqName;
     private int aspeqNumQuestions;
     @Convert(converter = StringListConverter.class)
     private ArrayList<String> aspeqAllowedMaterials;
+
+    @ManyToMany
+    @JoinTable(name = "exam_question",
+            joinColumns = @JoinColumn(name = "exam_id"),
+            inverseJoinColumns = @JoinColumn(name = "question_id"))
+    private Set<Exam> exams;
 
     public Long getId() {
         return this.id;
@@ -37,11 +43,11 @@ public class Exam {
         this.name = name;
     }
 
-    public String getLicenseType() {
+    public LicenseType getLicenseType() {
         return this.licenseType;
     }
 
-    public void setLicenseType(String licenseType) {
+    public void setLicenseType(LicenseType licenseType) {
         this.licenseType = licenseType;
     }
 
