@@ -1,4 +1,4 @@
-package nz.co.groundschool.api.presentation.exceptions;
+package nz.co.groundschool.api.application.exceptions;
 
 public class ExamNotFoundException extends RuntimeException {
 

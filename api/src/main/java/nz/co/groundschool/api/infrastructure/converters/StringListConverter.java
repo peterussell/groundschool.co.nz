@@ -1,4 +1,4 @@
-package nz.co.groundschool.api.persistence.converters;
+package nz.co.groundschool.api.infrastructure.converters;
 
 import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;

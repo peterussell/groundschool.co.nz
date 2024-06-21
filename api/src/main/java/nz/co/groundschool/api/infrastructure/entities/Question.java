@@ -1,4 +1,4 @@
-package nz.co.groundschool.api.persistence.entities;
+package nz.co.groundschool.api.infrastructure.entities;
 
 import jakarta.persistence.*;
 

@@ -1,10 +1,12 @@
 package nz.co.groundschool.api.presentation.controllers;
 
-import nz.co.groundschool.api.persistence.repository.QuestionRepository;
+import nz.co.groundschool.api.infrastructure.entities.Question;
+import nz.co.groundschool.api.infrastructure.repository.QuestionRepository;
+import nz.co.groundschool.api.application.exceptions.QuestionNotFoundException;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.Set;
 
 @RestController
 @RequestMapping("/questions")
@@ -14,5 +16,11 @@ class QuestionController {
 
     QuestionController(QuestionRepository repository) {
         this.repository = repository;
+    }
+
+    @GetMapping("/{id}")
+    Question getQuestion(@PathVariable Long id) {
+        return repository.findById(id)
+                .orElseThrow(() -> new QuestionNotFoundException(id));
     }
 }

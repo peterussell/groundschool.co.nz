@@ -1,8 +1,8 @@
-package nz.co.groundschool.api.persistence.helpers;
+package nz.co.groundschool.api.infrastructure.helpers;
 
 import nz.co.groundschool.api.domain.enums.LicenseType;
-import nz.co.groundschool.api.persistence.entities.Exam;
-import nz.co.groundschool.api.persistence.repository.ExamRepository;
+import nz.co.groundschool.api.infrastructure.entities.Exam;
+import nz.co.groundschool.api.infrastructure.repository.ExamRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

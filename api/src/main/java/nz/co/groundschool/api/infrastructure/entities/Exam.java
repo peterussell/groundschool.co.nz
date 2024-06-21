@@ -1,13 +1,14 @@
-package nz.co.groundschool.api.persistence.entities;
+package nz.co.groundschool.api.infrastructure.entities;
 
 import jakarta.persistence.*;
 import nz.co.groundschool.api.domain.enums.LicenseType;
-import nz.co.groundschool.api.persistence.converters.StringListConverter;
+import nz.co.groundschool.api.infrastructure.converters.StringListConverter;
 
 import java.util.List;
 
 @Entity
 public class Exam {
+
     @Id
     @GeneratedValue
     private Long id;
@@ -21,6 +22,7 @@ public class Exam {
     private int aspeqNumQuestions;
     @Convert(converter = StringListConverter.class)
     private List<String> aspeqAllowedMaterials;
+
 
     @ManyToMany
     @JoinTable(name = "exam_question",
