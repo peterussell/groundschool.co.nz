@@ -1,6 +1,6 @@
 package nz.co.groundschool.api.presentation.dto;
 
-import nz.co.groundschool.api.domain.entities.AspeqExamDetails;
+import nz.co.groundschool.api.domain.entities.AspeqDetails;
 import nz.co.groundschool.api.domain.enums.LicenseType;
 
 public class ExamRestReponseDto {
@@ -9,7 +9,7 @@ public class ExamRestReponseDto {
     private LicenseType licenseType;
     private String slug;
     private int numAvailableQuestions;
-    private AspeqExamDetails aspeqExamDetails;
+    private AspeqDetails aspeqExamDetails;
 
     public ExamRestReponseDto() { }
 
@@ -53,11 +53,11 @@ public class ExamRestReponseDto {
         this.numAvailableQuestions = numAvailableQuestions;
     }
 
-    public AspeqExamDetails getAspeqExamDetails() {
+    public AspeqDetails getAspeqExamDetails() {
         return this.aspeqExamDetails;
     }
 
-    public void setAspeqExamDetails(AspeqExamDetails aspeqExamDetails) {
+    public void setAspeqExamDetails(AspeqDetails aspeqExamDetails) {
         this.aspeqExamDetails = aspeqExamDetails;
     }
 }

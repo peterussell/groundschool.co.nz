@@ -1,8 +1,10 @@
 package nz.co.groundschool.api.presentation.controllers;
 
+import nz.co.groundschool.api.application.exceptions.ExamNotFoundException;
 import nz.co.groundschool.api.application.services.ExamService;
 import nz.co.groundschool.api.application.services.IExamService;
 import nz.co.groundschool.api.domain.entities.Exam;
+import nz.co.groundschool.api.infrastructure.entities.JpaQuestion;
 import nz.co.groundschool.api.presentation.dto.ExamRestReponseDto;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,7 +46,7 @@ class ExamController {
 //    }
 //
 //    @GetMapping("/{id}/questions")
-//    List<Question> getQuestions(@PathVariable Long id, @RequestParam int count) {
+//    List<JpaQuestion> getQuestions(@PathVariable Long id, @RequestParam int count) {
 //        return repository.findById(id)
 //                .orElseThrow(() -> new ExamNotFoundException(id))
 //                .getQuestions(count);

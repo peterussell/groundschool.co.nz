@@ -1,6 +1,6 @@
 package nz.co.groundschool.api.domain.entities;
 
-public class AspeqExamDetails {
+public class AspeqDetails {
     private String name;
     private int durationMinutes;
     private int numQuestions;

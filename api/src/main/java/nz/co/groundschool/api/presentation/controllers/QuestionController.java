@@ -1,6 +1,6 @@
 package nz.co.groundschool.api.presentation.controllers;
 
-import nz.co.groundschool.api.infrastructure.entities.Question;
+import nz.co.groundschool.api.infrastructure.entities.JpaQuestion;
 import nz.co.groundschool.api.infrastructure.repository.QuestionRepository;
 import nz.co.groundschool.api.application.exceptions.QuestionNotFoundException;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,7 +19,7 @@ class QuestionController {
     }
 
     @GetMapping("/{id}")
-    Question getQuestion(@PathVariable Long id) {
+    JpaQuestion getQuestion(@PathVariable Long id) {
         return repository.findById(id)
                 .orElseThrow(() -> new QuestionNotFoundException(id));
     }

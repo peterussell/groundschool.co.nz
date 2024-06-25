@@ -8,7 +8,7 @@ public class Exam {
     private LicenseType licenseType;
     private String slug;
     private int numAvailableQuestions;
-    private AspeqExamDetails aspeqExamDetails;
+    private AspeqDetails aspeqExamDetails;
 
     public Long getId() {
         return this.id;
@@ -49,11 +49,11 @@ public class Exam {
         this.numAvailableQuestions = numAvailableQuestions;
     }
 
-    public AspeqExamDetails getAspeqExamDetails() {
+    public AspeqDetails getAspeqExamDetails() {
         return this.aspeqExamDetails;
     }
 
-    public void setAspeqExamDetails(AspeqExamDetails aspeqExamDetails) {
+    public void setAspeqExamDetails(AspeqDetails aspeqExamDetails) {
         this.aspeqExamDetails = aspeqExamDetails;
     }
 }

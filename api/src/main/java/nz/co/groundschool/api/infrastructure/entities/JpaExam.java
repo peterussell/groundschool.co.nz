@@ -28,7 +28,7 @@ public class JpaExam {
     @JoinTable(name = "exam_question",
             joinColumns = @JoinColumn(name = "exam_id"),
             inverseJoinColumns = @JoinColumn(name = "question_id"))
-    private List<Question> questions;
+    private List<JpaQuestion> questions;
 
     public JpaExam() { }
 
@@ -114,11 +114,11 @@ public class JpaExam {
         this.aspeqAllowedMaterials = aspeqAllowedMaterials;
     }
 
-    public List<Question> getQuestions(int count) {
+    public List<JpaQuestion> getQuestions(int count) {
         return this.questions;
     }
 
-    public void addQuestion(Question question) {
+    public void addQuestion(JpaQuestion question) {
         this.questions.add(question);
     }
 }
