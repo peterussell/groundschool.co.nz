@@ -3,7 +3,7 @@ package nz.co.groundschool.api.presentation.dto;
 import nz.co.groundschool.api.domain.entities.AspeqExamDetails;
 import nz.co.groundschool.api.domain.enums.LicenseType;
 
-public class ExamDto {
+public class ExamRestReponseDto {
     private Long id;
     private String name;
     private LicenseType licenseType;
@@ -11,7 +11,7 @@ public class ExamDto {
     private int numAvailableQuestions;
     private AspeqExamDetails aspeqExamDetails;
 
-    public ExamDto() { }
+    public ExamRestReponseDto() { }
 
     public Long getId() {
         return this.id;

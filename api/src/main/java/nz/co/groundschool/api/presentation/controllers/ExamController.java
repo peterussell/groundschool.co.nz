@@ -3,7 +3,7 @@ package nz.co.groundschool.api.presentation.controllers;
 import nz.co.groundschool.api.application.services.ExamService;
 import nz.co.groundschool.api.application.services.IExamService;
 import nz.co.groundschool.api.domain.entities.Exam;
-import nz.co.groundschool.api.presentation.dto.ExamDto;
+import nz.co.groundschool.api.presentation.dto.ExamRestReponseDto;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -25,7 +25,7 @@ class ExamController {
     }
 
     @GetMapping("")
-    List<ExamDto> getExams() {
+    List<ExamRestReponseDto> getExams() {
         return examService.getAllExams()
                 .stream()
                 .map(this::convertToExamDto)
@@ -50,7 +50,7 @@ class ExamController {
 //                .getQuestions(count);
 //    }
 
-    private ExamDto convertToExamDto(Exam exam) {
-        return modelMapper.map(exam, ExamDto.class);
+    private ExamRestReponseDto convertToExamDto(Exam exam) {
+        return modelMapper.map(exam, ExamRestReponseDto.class);
     }
 }

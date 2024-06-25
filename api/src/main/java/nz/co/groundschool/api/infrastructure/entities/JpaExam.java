@@ -7,7 +7,7 @@ import nz.co.groundschool.api.infrastructure.converters.StringListConverter;
 import java.util.List;
 
 @Entity
-public class Exam {
+public class JpaExam {
 
     @Id
     @GeneratedValue
@@ -30,10 +30,10 @@ public class Exam {
             inverseJoinColumns = @JoinColumn(name = "question_id"))
     private List<Question> questions;
 
-    public Exam() { }
+    public JpaExam() { }
 
-    public Exam(String name, LicenseType licenseType, String slug, int numAvailableQuestions, String aspeqName,
-                int aspeqDurationMinutes, int aspeqNumQuestions, List<String> aspeqAllowedMaterials) {
+    public JpaExam(String name, LicenseType licenseType, String slug, int numAvailableQuestions, String aspeqName,
+                   int aspeqDurationMinutes, int aspeqNumQuestions, List<String> aspeqAllowedMaterials) {
         this.name = name;
         this.licenseType = licenseType;
         this.slug = slug;

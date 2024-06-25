@@ -1,7 +1,7 @@
 package nz.co.groundschool.api.infrastructure.helpers;
 
 import nz.co.groundschool.api.domain.enums.LicenseType;
-import nz.co.groundschool.api.infrastructure.entities.Exam;
+import nz.co.groundschool.api.infrastructure.entities.JpaExam;
 import nz.co.groundschool.api.infrastructure.repository.ExamRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
@@ -28,7 +28,7 @@ public class LoadDatabase {
             List<String> pplAirLawAllowedMaterials = List.of("AIP New Zealand - Volume 2 & 3");
             List<String> pplAirTechAllowedMaterials = List.of("Non-electronic nav computer", "Non-programmable calculator", "Standard ruler");
 
-            Exam pplAirLaw = new Exam(
+            JpaExam pplAirLaw = new JpaExam(
                     "Air Law",
                     LicenseType.PPL,
                     "air-law",
@@ -38,7 +38,7 @@ public class LoadDatabase {
                     35,
                     pplAirLawAllowedMaterials);
 
-            Exam pplAirTech = new Exam(
+            JpaExam pplAirTech = new JpaExam(
                     "Air Tech",
                     LicenseType.PPL,
                     "air-tech",
