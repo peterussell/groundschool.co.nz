@@ -41,7 +41,7 @@ def _get_exams():
         "name": "Flight Radio",
         "slug": "flight-radio",
         "licenseType": "PPL",
-        "availableQuestions": 158,
+        "availableQuestions": 159,
         "aspeqName": "FRTO Flight Radio",
         "aspeqExamInfo": {
             "durationMinutes": 40,

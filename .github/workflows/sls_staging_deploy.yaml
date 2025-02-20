@@ -24,7 +24,7 @@ jobs:
           node-version: 22
 
       - name: Serverless deploy
-        uses: serverless/github-action@v3
+        uses: serverless/github-action@v3.2
         with:
           args: -c "cd ./sls/services/web-api && serverless deploy --verbose"
           entrypoint: /bin/sh
