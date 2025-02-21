@@ -29,6 +29,16 @@ export const HomePage = () => {
         </Grid>
       </Container>
 
+      <ins className="adsbygoogle"
+        style={{ display: 'block' }}
+        data-ad-client="ca-pub-8590437335069489"
+        data-ad-slot="8456043275"
+        data-ad-format="auto"
+        data-full-width-responsive="true"></ins>
+      <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+
       <Container maxWidth="md" className={classes.bodyContainer}>
         <QuizSelector />
       </Container>
