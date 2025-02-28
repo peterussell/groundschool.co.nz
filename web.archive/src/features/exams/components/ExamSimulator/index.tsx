@@ -54,12 +54,12 @@ export const ExamSimulator = () => {
   };
 
   if (!examConfig?.exam) {
-    return <Redirect push to="/exams" />
+    return <Navigate push to="/exams" />
   }
 
   if (showResults) {
     const path = examConfig.isQuiz ? "quizzes" : "exams";
-    return <Redirect push to={`/${path}/results`} />
+    return <Navigate push to={`/${path}/results`} />
   }
 
   const { exam } = examConfig;

@@ -1,6 +1,6 @@
 
 import { ReactNode, useEffect, useState } from "react";
-import { Redirect } from "react-router-dom";
+import { Navigate, Redirect } from "react-router-dom";
 import {
   Box,
   Grid,
@@ -77,7 +77,7 @@ export const ExamSelector = () => {
   };
 
   if (redirect) {
-    return <Redirect push to={redirect} />;
+    return <Navigate push to={redirect} />;
   }
 
   return (

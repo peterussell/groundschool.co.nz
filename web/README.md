@@ -1,5 +1,5 @@
 # GroundSchool NZ
 
- - Start development environment: `yarn run start`
- - Build for production: `yarn run build`
+ - Start development environment: `npm run dev`
+ - Build for production: `npm run build`
  

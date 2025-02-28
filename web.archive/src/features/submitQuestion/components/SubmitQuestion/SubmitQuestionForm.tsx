@@ -98,7 +98,7 @@ export const SubmitQuestionForm = () => {
   };
 
   if (redirect) {
-    return <Redirect push to={redirect} />;
+    return <Navigate push to={redirect} />;
   }
 
   return (

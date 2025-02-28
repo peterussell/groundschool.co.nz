@@ -57,7 +57,7 @@ export const QuizSelector = () => {
   };
 
   if (redirect) {
-    return <Redirect push to={redirect} />;
+    return <Navigate push to={redirect} />;
   }
 
   return (
