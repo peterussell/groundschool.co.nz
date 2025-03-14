@@ -38,6 +38,7 @@ export const theme = createTheme({
     fontSize: 13,
     body1: {
       fontFamily: "Roboto, sans-serif",
+      fontSize: '1em',
       lineHeight: "1.6em"
     },
     h1: {
@@ -49,12 +50,12 @@ export const theme = createTheme({
       fontFamily: "Roboto Condensed, sans-serif"
     },
     h3: {
-      fontFamily: "Roboto Condensed, sans-serif"
+      fontFamily: "Roboto Condensed, sans-serif",
     },
     h4: {
       fontFamily: "Roboto Condensed, sans-serif",
       letterSpacing: -0.5,
-      marginBottom: 20
+      padding: '10px 0',
     },
     h5: {
       textTransform: 'uppercase',
