@@ -8,10 +8,9 @@ export function MainLayout(): JSX.Element {
   return (
     <>
       <GSAppBar />
-      <Container maxWidth='md'>
+      <Container maxWidth={false}>
         <Outlet />
       </Container>
-      
     </>
   )
 };

@@ -1,11 +1,11 @@
 import { createFileRoute } from '@tanstack/react-router';
+import { HomePage } from '../pages/HomePage';
+import { Container } from '@mui/material';
 
 export const Route = createFileRoute('/')({
   component: Index
 });
 
 function Index() {
-  return (
-    <div><h3>[home]</h3></div>
-  )
+  return <HomePage />;
 }

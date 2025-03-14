@@ -1,7 +1,41 @@
+import { Container, Stack, Typography } from "@mui/material";
 import { JSX } from "react";
 
-export function Home(): JSX.Element {
-  return <p>[home]</p>;
+import banner from '/images/landing-page/background.jpg';
+
+export function HomePage(): JSX.Element {
+  return (
+    <Container
+      maxWidth={false}
+      sx={{
+        backgroundImage: `url(${banner})`,
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        backgroundPositionY: '-240px',
+        py: '1em',
+        minHeight: '240px',
+        display: 'flex',
+        alignContent: 'center',
+        justifyContent: 'center',
+        width: '100vw',
+      }}>
+        <Container maxWidth='sm'>
+          <Stack direction="row" spacing={4} alignItems="center">
+            <img src="/images/landing-page/groundschoolnz-logo-200.png" />
+
+            <Stack>
+              <Typography variant="h5" color="textSecondary">
+                Welcome to Ground School
+              </Typography>
+              <Typography color="textSecondary" fontSize="1.4em" lineHeight="1.4em" pt={2}>
+                Flight training resources to prepare for the New Zealand
+                CAA aviation theory exams.
+              </Typography>
+            </Stack>
+          </Stack>
+        </Container>
+    </Container>
+  )
 }
 
 

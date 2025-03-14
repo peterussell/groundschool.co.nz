@@ -18,7 +18,7 @@ export function GSAppBar(): JSX.Element {
           <Stack direction="row" spacing={2} sx={{ flexGrow: 1, alignItems: 'center' }}>
             <Link to='/'><Typography variant='h1'>GroundSchool NZ</Typography></Link>
             <Button><Link to='/exams'><Typography>Exams</Typography></Link></Button>
-            <Button><Link to='/about'><Typography>About</Typography></Link></Button>
+            <Button><Link to='/articles'><Typography>Articles</Typography></Link></Button>
             <Button><Link to='/contact'><Typography>Contact</Typography></Link></Button>
             <IconButton onClick={toggleUserMenu} sx={{ marginLeft: 'auto !important' }}><AccountCircle /></IconButton>
           </Stack>

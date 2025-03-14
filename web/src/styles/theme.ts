@@ -57,6 +57,7 @@ export const theme = createTheme({
       marginBottom: 20
     },
     h5: {
+      textTransform: 'uppercase',
       fontFamily: "Roboto Condensed, sans-serif",
     },
     h6: {
@@ -87,6 +88,11 @@ export const theme = createTheme({
           },
           svg: { color: '#fff', fontSize: '1.4em' }
         }
+      }
+    },
+    MuiContainer: {
+      defaultProps: {
+        disableGutters: true
       }
     },
     MuiMenu: {
